@@ -33,7 +33,7 @@ export default props => (
   <StaticQuery
     query={graphql`
       {
-        allShopifyProduct {
+        allStrapiProduct {
           edges {
             node {
               images {

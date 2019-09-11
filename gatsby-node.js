@@ -6,7 +6,7 @@ exports.createPages = async ({
 }) => {
   const pages = await graphql(`
     {
-      allShopifyProduct {
+      allStrapiProduct {
         edges {
           node {
             id
@@ -17,7 +17,7 @@ exports.createPages = async ({
     }
   `);
 
-  pages.data.allShopifyProduct.edges.forEach(edge => {
+  pages.data.allStrapiProduct.edges.forEach(edge => {
     createPage({
       path: `/product/${edge.node.handle}`,
       component: path.resolve('./src/templates/ProductPageTemplate.js'),

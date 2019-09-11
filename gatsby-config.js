@@ -18,10 +18,16 @@ module.exports = {
     },
     'gatsby-transformer-sharp',
     {
-      resolve: 'gatsby-source-shopify',
+      resolve: `gatsby-source-strapi`,
       options: {
-        shopName: 'gatsby-swag',
-        accessToken: process.env.SHOPIFY_ACCESS_TOKEN
+        apiURL: `http://10.0.1.12:1337`,
+        queryLimit: 1000, // Default to 100
+        contentTypes: [`product`]
+        // Possibility to login with a strapi user, when content types are not publically available (optional).
+        // loginData: {
+        //   identifier: "",
+        //   password: "",
+        // },
       }
     },
     'gatsby-plugin-react-helmet',

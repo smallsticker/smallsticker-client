@@ -24,9 +24,7 @@ const ProductListing = () => (
   <StaticQuery
     query={graphql`
       query ProductListingQuery {
-        products: allShopifyProduct(
-          sort: { fields: [publishedAt], order: ASC }
-        ) {
+        products: allStrapiProduct(sort: { fields: [createdAt], order: ASC }) {
           edges {
             node {
               id
@@ -35,7 +33,7 @@ const ProductListing = () => (
               description
               productType
               variants {
-                shopifyId
+                id
                 title
                 price
                 availableForSale

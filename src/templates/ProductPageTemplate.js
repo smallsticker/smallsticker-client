@@ -12,8 +12,8 @@ const ProductPageTemplate = props => {
   const {
     data: {
       site,
-      shopifyProduct: product,
-      shopifyProduct: { title, description: fullDescription, handle }
+      strapiProduct: product,
+      strapiProduct: { title, description: fullDescription, handle }
     },
     location: { pathname }
   } = props;
@@ -81,21 +81,20 @@ export const query = graphql`
         description
       }
     }
-    shopifyProduct(handle: { eq: $handle }) {
+    strapiProduct(handle: { eq: $handle }) {
       id
       title
       handle
       description
       productType
       variants {
-        shopifyId
+        id
         title
         price
         availableForSale
       }
       images {
         id
-        altText
         localFile {
           childImageSharp {
             fluid(maxWidth: 910, maxHeight: 910) {
