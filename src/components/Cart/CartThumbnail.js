@@ -38,6 +38,7 @@ export default props => (
             node {
               images {
                 id
+                altText: name
                 localFile {
                   childImageSharp {
                     fluid {

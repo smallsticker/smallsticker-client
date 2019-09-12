@@ -9,7 +9,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "develop": "GATSBY_GRAPHQL_IDE=playground gatsby develop",
+    "develop": "gatsby develop",
     "format": "prettier --write src/**/*.js",
     "lint": "echo \"Error: no linter specified\" && exit 0",
     "serve": "gatsby serve",

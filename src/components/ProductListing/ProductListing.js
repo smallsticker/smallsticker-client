@@ -33,13 +33,14 @@ const ProductListing = () => (
               description
               productType
               variants {
-                id
+                shopifyId: id
                 title
                 price
                 availableForSale
               }
               images {
                 id
+                altText: name
                 localFile {
                   childImageSharp {
                     fluid(maxWidth: 910, maxHeight: 910) {

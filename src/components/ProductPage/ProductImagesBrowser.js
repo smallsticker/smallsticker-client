@@ -315,7 +315,10 @@ class ProductImagesBrowser extends Component {
             <Image fluid={fluid} />
           </ImageBox>
           {altText && (
-            <CommunityCaption caption={altText} superZoom={superZoom} />
+            <CommunityCaption
+              caption={altText.replace(/\.[^/.]+$/, '')}
+              superZoom={superZoom}
+            />
           )}
         </ZoomArea>
         <ZoomHelper>{superZoom ? <MdZoomOut /> : <MdZoomIn />}</ZoomHelper>
