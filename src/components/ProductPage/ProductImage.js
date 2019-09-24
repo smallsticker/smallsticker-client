@@ -79,7 +79,7 @@ class ProductImage extends Component {
   render() {
     const {
       image: {
-        localFile: {
+        image: {
           childImageSharp: { fluid }
         }
       },

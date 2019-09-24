@@ -229,7 +229,7 @@ const ProductListingItem = props => {
 
   const { price } = firstVariant;
   const {
-    localFile: {
+    image: {
       childImageSharp: { fluid }
     }
   } = firstImage;

@@ -1,16 +1,13 @@
 import React from 'react';
-import Client from 'shopify-buy';
+import Client from 'strapi-sdk-javascript';
 
-const client = Client.buildClient({
-  domain: 'gatsby-swag.myshopify.com',
-  storefrontAccessToken: process.env.SHOPIFY_ACCESS_TOKEN
-});
+const client = new Client('http://10.0.1.12:1337');
 
 export const defaultStoreContext = {
   client,
   isCartOpen: false,
   adding: false,
-  checkout: { lineItems: [] },
+  checkout: { items: [] },
   products: [],
   shop: {},
   addVariantToCart: () => {},

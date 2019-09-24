@@ -21,7 +21,7 @@ const CartThumbnail = ({
   const image = shopifyImages.find(({ id }) => id === imageId);
 
   if (image) {
-    imageProps.fluid = image.localFile.childImageSharp.fluid;
+    imageProps.fluid = image.image.childImageSharp.fluid;
   } else {
     imageProps.src = fallback;
   }
@@ -38,8 +38,8 @@ export default props => (
             node {
               images {
                 id
-                altText: name
-                localFile {
+                altText
+                image {
                   childImageSharp {
                     fluid {
                       ...GatsbyImageSharpFluid_withWebp

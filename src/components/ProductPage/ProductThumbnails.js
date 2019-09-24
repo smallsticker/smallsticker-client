@@ -64,7 +64,7 @@ class ProductThumbnails extends Component {
               {images.map((image, idx) => {
                 const {
                   id,
-                  localFile: {
+                  image: {
                     childImageSharp: { fluid }
                   }
                 } = image;

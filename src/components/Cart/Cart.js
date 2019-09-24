@@ -339,12 +339,12 @@ class Cart extends Component {
             setCartLoading(false);
           };
 
-          const itemsInCart = checkout.lineItems.reduce(
+          const itemsInCart = checkout.items.reduce(
             (total, item) => total + item.quantity,
             0
           );
 
-          const showFreeBonus = !checkout.lineItems.some(
+          const showFreeBonus = !checkout.items.some(
             ({ id }) => id === gatsbyStickerPackID
           );
 
@@ -379,10 +379,10 @@ class Cart extends Component {
                   <ItemsNumber>{itemsInCart}</ItemsNumber>
                 </ItemsInCart>
               </Heading>
-              {checkout.lineItems.length > 0 ? (
+              {checkout.items.length > 0 ? (
                 <Content>
                   <CartList
-                    items={checkout.lineItems}
+                    items={checkout.items}
                     handleRemove={handleRemove}
                     updateQuantity={handleQuantityChange}
                     setCartLoading={setCartLoading}

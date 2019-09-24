@@ -40,8 +40,8 @@ const ProductListing = () => (
               }
               images {
                 id
-                altText: name
-                localFile {
+                altText
+                image {
                   childImageSharp {
                     fluid(maxWidth: 910, maxHeight: 910) {
                       ...GatsbyImageSharpFluid_withWebp

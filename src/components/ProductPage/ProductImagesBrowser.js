@@ -281,7 +281,7 @@ class ProductImagesBrowser extends Component {
 
     const {
       altText,
-      localFile: {
+      image: {
         childImageSharp: { fluid }
       }
     } = image;

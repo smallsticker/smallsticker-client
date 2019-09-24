@@ -146,21 +146,21 @@ export default class Layout extends React.Component {
 
         const { checkout, client } = this.state.store;
         const checkoutId = checkout.id;
-        const lineItemsToUpdate = [
-          { variantId, quantity: parseInt(quantity, 10) }
-        ];
+        const lineItemsToUpdate = {
+          checkout: checkoutId,
+          variant: variantId,
+          quantity: parseInt(quantity, 10)
+        };
 
-        return client.checkout
-          .addLineItems(checkoutId, lineItemsToUpdate)
-          .then(checkout => {
-            this.setState(state => ({
-              store: {
-                ...state.store,
-                checkout,
-                adding: false
-              }
-            }));
-          });
+        return client.createEntry('items', lineItemsToUpdate).then(checkout => {
+          this.setState(state => ({
+            store: {
+              ...state.store,
+              checkout,
+              adding: false
+            }
+          }));
+        });
       },
       removeLineItem: (client, checkoutID, lineItemID) => {
         return client.checkout
@@ -213,8 +213,10 @@ export default class Layout extends React.Component {
       }));
     };
 
-    const createNewCheckout = () => this.state.store.client.checkout.create();
-    const fetchCheckout = id => this.state.store.client.checkout.fetch(id);
+    const createNewCheckout = () =>
+      this.state.store.client.createEntry('checkouts');
+    const fetchCheckout = id =>
+      this.state.store.client.getEntry('checkouts', id);
 
     if (existingCheckoutID) {
       try {
