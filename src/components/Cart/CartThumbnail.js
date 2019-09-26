@@ -52,7 +52,7 @@ export default props => (
         }
       }
     `}
-    render={({ allShopifyProduct: { edges } }) => {
+    render={({ allStrapiProduct: { edges } }) => {
       const images = edges
         .map(({ node }) => node.images)
         .reduce((acc, val) => acc.concat(val), []);

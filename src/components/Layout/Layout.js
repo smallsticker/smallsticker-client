@@ -163,24 +163,23 @@ export default class Layout extends React.Component {
         });
       },
       removeLineItem: (client, checkoutID, lineItemID) => {
-        return client.checkout
-          .removeLineItems(checkoutID, [lineItemID])
-          .then(res => {
-            this.setState(state => ({
-              store: {
-                ...state.store,
-                checkout: res
-              }
-            }));
-          });
+        return client.deleteEntry('items', lineItemID).then(res => {
+          this.setState(state => ({
+            store: {
+              ...state.store,
+              checkout: res
+            }
+          }));
+        });
       },
       updateLineItem: (client, checkoutID, lineItemID, quantity) => {
-        const lineItemsToUpdate = [
-          { id: lineItemID, quantity: parseInt(quantity, 10) }
-        ];
+        const lineItemsToUpdate = {
+          checkout: checkoutID,
+          quantity: parseInt(quantity, 10)
+        };
 
-        return client.checkout
-          .updateLineItems(checkoutID, lineItemsToUpdate)
+        return client
+          .updateEntry('items', lineItemID, lineItemsToUpdate)
           .then(res => {
             this.setState(state => ({
               store: {

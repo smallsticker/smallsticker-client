@@ -391,18 +391,16 @@ class Cart extends Component {
 
                   <Costs>
                     <Cost>
-                      <span>Subtotal:</span>{' '}
-                      <strong>USD ${checkout.subtotalPrice}</strong>
+                      <span>小计:</span>{' '}
+                      <strong>RMB ¥{checkout.subtotalPrice}</strong>
                     </Cost>
                     <Cost>
-                      <span>Taxes:</span> <strong>{checkout.totalTax}</strong>
-                    </Cost>
-                    <Cost>
-                      <span>Shipping (worldwide):</span> <strong>FREE</strong>
+                      <span>运费:</span>{' '}
+                      <strong>RMB ¥{checkout.shipping}</strong>
                     </Cost>
                     <Total>
-                      <span>Total Price:</span>
-                      <strong>USD ${checkout.totalPrice}</strong>
+                      <span>总计:</span>
+                      <strong>RMB ¥{checkout.totalPrice}</strong>
                     </Total>
                   </Costs>
 
