@@ -132,7 +132,7 @@ export default ({
       <Info>
         <Name>{item.title}</Name>
         <Meta>
-          {item.variant.title}, ${item.variant.price}
+          {item.variant.title}, ¥{item.variant.price}
         </Meta>
       </Info>
       <Quantity

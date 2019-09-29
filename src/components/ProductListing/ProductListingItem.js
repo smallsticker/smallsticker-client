@@ -267,7 +267,7 @@ const ProductListingItem = props => {
               </Description>
               <PriceRow>
                 <Price>
-                  <span>USD</span> ${price}
+                  <span>RMB</span> ¥{price}
                 </Price>
                 <Incentive>
                   <span>

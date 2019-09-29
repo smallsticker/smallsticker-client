@@ -18,11 +18,13 @@
     "test": "echo \"Error: no test specified\" && exit 0"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.10",
-    "@emotion/styled": "^10.0.11",
+    "@emotion/core": "^10.0.17",
+    "@emotion/styled": "^10.0.17",
+    "@smooth-ui/core-em": "^11.1.1",
     "apollo-boost": "^0.3.1",
     "auth0-js": "^9.10.2",
     "axios": "^0.18.0",
+    "emotion-theming": "^10.0.19",
     "gatsby": "^2.5.0",
     "gatsby-image": "^2.0.41",
     "gatsby-plugin-emotion": "^4.0.6",
@@ -41,8 +43,8 @@
     "react-icons": "^3.7.0",
     "react-onclickoutside": "^6.8.0",
     "react-router-dom": "^5.0.0",
+    "reakit": "^1.0.0-beta.8",
     "recompose": "^0.30.0",
-    "shopify-buy": "^2.2.4",
     "strapi-sdk-javascript": "^0.3.1"
   },
   "devDependencies": {

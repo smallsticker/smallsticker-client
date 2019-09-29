@@ -21,6 +21,23 @@ export const Input = styled(`input`)`
   }
 `;
 
+export const Textarea = styled(`textarea`)`
+  background-color: ${colors.lightest};
+  border: 1px solid ${colors.brandBright};
+  border-radius: ${radius.default}px;
+  color: ${colors.text};
+  display: block;
+  font-size: 1.1rem;
+  padding: ${spacing.sm}px ${spacing.md}px;
+  width: 100%;
+
+  :focus {
+    box-shadow: 0 0 0 3px ${colors.accent};
+    outline: 0;
+    transition: box-shadow 0.15s ease-in-out;
+  }
+`;
+
 export const Select = styled(Input.withComponent('select'))`
   appearance: none;
   /* stylelint-disable */

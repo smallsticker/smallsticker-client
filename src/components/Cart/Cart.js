@@ -3,12 +3,7 @@ import styled from '@emotion/styled';
 import { keyframes } from '@emotion/core';
 import PropTypes from 'prop-types';
 
-import {
-  MdClose,
-  MdShoppingCart,
-  MdArrowBack,
-  MdArrowForward
-} from 'react-icons/md';
+import { MdClose, MdShoppingCart } from 'react-icons/md';
 
 import StoreContext from '../../context/StoreContext';
 import CartList from './CartList';
@@ -404,12 +399,11 @@ class Cart extends Component {
                     </Total>
                   </Costs>
 
-                  <CheckOut href={checkout.webUrl}>
-                    Check out <MdArrowForward />
+                  <CheckOut to="/order" onClick={toggle}>
+                    结算
                   </CheckOut>
-                  <BackLink onClick={toggle}>
-                    <MdArrowBack />
-                    Back to shopping
+                  <BackLink to="/" onClick={toggle}>
+                    继续挑选
                   </BackLink>
 
                   {showFreeBonus && <FreeBonus />}
