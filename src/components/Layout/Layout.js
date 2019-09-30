@@ -188,6 +188,20 @@ export default class Layout extends React.Component {
               }
             }));
           });
+      },
+      submitOrder: (email, phone, address, payMethod) => {
+        const { checkout, client } = this.state.store;
+        const checkoutId = checkout.id;
+        const OrderTosubmit = {
+          checkout: checkoutId,
+          email,
+          phone,
+          address,
+          payMethod
+        };
+        return client.createEntry('orders', OrderTosubmit).then(order => {
+          console.log(order);
+        });
       }
     }
   };

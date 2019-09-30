@@ -399,7 +399,7 @@ class Cart extends Component {
                     </Total>
                   </Costs>
 
-                  <CheckOut to="/order" onClick={toggle}>
+                  <CheckOut to="/new-order" onClick={toggle}>
                     结算
                   </CheckOut>
                   <BackLink to="/" onClick={toggle}>
