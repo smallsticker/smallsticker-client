@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { navigate } from 'gatsby';
 import styled from '@emotion/styled';
 import StoreContext from '../../context/StoreContext';
 

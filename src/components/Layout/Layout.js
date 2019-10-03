@@ -197,10 +197,11 @@ export default class Layout extends React.Component {
           email,
           phone,
           address,
-          payMethod
+          payMethod,
+          isDesktopViewport: this.state.interface.isDesktopViewport
         };
         return client.createEntry('orders', OrderTosubmit).then(order => {
-          console.log(order);
+          location.href = order['url'];
         });
       }
     }
