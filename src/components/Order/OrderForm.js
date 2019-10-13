@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { navigate } from 'gatsby';
 import styled from '@emotion/styled';
 import StoreContext from '../../context/StoreContext';
-
 import { colors, spacing, radius } from '../../utils/styles';
 import { Input, Select, Submit, Textarea } from '../shared/FormElements';
 import { MdErrorOutline } from 'react-icons/md';
 import { Form, FormField, FormFieldLabel, Boxer } from '@smooth-ui/core-em';
+
+import post from './post';
 
 const SubmitButton = styled(Submit)`
   align-self: flex-end;
@@ -52,9 +52,62 @@ class OrderForm extends Component {
   state = {
     email: '',
     phone: '',
-    payMethod: 'alipay',
+    payMethod: '',
+    province: '',
+    provinces: post['100000'],
+    city: '',
+    cities: {},
+    district: '',
+    districts: {},
     address: '',
     errors: []
+  };
+
+  findKey = (obj, value, compare = (a, b) => a === b) => {
+    return Object.keys(obj).find(k => compare(obj[k], value));
+  };
+
+  handleProvinceChange = event => {
+    event.preventDefault;
+    if (event.target.value) {
+      const errors = this.state.errors;
+
+      const errorIdx = errors.findIndex(
+        error => error.field === event.target.name
+      );
+
+      errors.splice(errorIdx, 1);
+
+      if (~errorIdx) {
+        this.setState({ errors: errors });
+      }
+    }
+
+    this.setState({
+      [event.target.name]: event.target.value,
+      cities: post[this.findKey(this.state.provinces, event.target.value)]
+    });
+  };
+  handleCityChange = event => {
+    event.preventDefault;
+    if (event.target.value) {
+      const errors = this.state.errors;
+
+      const errorIdx = errors.findIndex(
+        error => error.field === event.target.name
+      );
+
+      errors.splice(errorIdx, 1);
+
+      if (~errorIdx) {
+        this.setState({ errors: errors });
+      }
+    }
+
+    this.setState({
+      [event.target.name]: event.target.value,
+      districts: post[this.findKey(this.state.cities, event.target.value)]
+    });
   };
 
   handleChange = event => {
@@ -111,17 +164,24 @@ class OrderForm extends Component {
     callback(
       this.state.email,
       this.state.phone,
-      this.state.address,
+      this.state.province +
+        this.state.city +
+        this.state.district +
+        this.state.address,
       this.state.payMethod
     );
   };
 
   render() {
-    const { errors } = this.state;
+    const { provinces, cities, districts, errors } = this.state;
     return (
       <StoreContext.Consumer>
         {({ submitOrder }) => (
-          <Boxer width={{ sm: 1, md: 0.8 }} m="auto">
+          <Boxer
+            width={{ xs: 0.88, sm: 0.8, md: 0.6, lg: 0.5 }}
+            pt="100"
+            m="auto"
+          >
             <Form onSubmit={this.handleSubmit(submitOrder)} noValidate>
               <Errors show={errors.length}>
                 <ErrorSign>
@@ -160,6 +220,57 @@ class OrderForm extends Component {
               </FormField>
               <FormField>
                 <FormFieldLabel name="address">收件地址</FormFieldLabel>
+                <Select
+                  id="province"
+                  name="province"
+                  value={this.state.province}
+                  onChange={this.handleProvinceChange}
+                >
+                  <option disabled value="">
+                    选择省份
+                  </option>
+                  {Object.keys(provinces).map(k => (
+                    <option value={provinces[k]} key={k}>
+                      {provinces[k]}
+                    </option>
+                  ))}
+                </Select>
+              </FormField>
+              <FormField>
+                <Select
+                  id="city"
+                  name="city"
+                  value={this.state.city}
+                  onChange={this.handleCityChange}
+                >
+                  <option disabled value="">
+                    选择城市
+                  </option>
+                  {Object.keys(cities).map(k => {
+                    <option value={cities[k]} key={k}>
+                      {cities[k]}
+                    </option>;
+                  })}
+                </Select>
+              </FormField>
+              <FormField>
+                <Select
+                  id="district"
+                  name="district"
+                  value={this.state.district}
+                  onChange={this.handleChange}
+                >
+                  <option disabled value="">
+                    选择区县
+                  </option>
+                  {Object.keys(districts).map(k => {
+                    <option value={district[k]} key={k}>
+                      {district[k]}
+                    </option>;
+                  })}
+                </Select>
+              </FormField>
+              <FormField>
                 <Textarea
                   id="address"
                   name="address"
@@ -167,6 +278,7 @@ class OrderForm extends Component {
                   onChange={this.handleChange}
                 />
               </FormField>
+
               <FormField>
                 <FormFieldLabel name="payMethod">支付方式</FormFieldLabel>
                 <Select

@@ -200,8 +200,11 @@ export default class Layout extends React.Component {
           payMethod,
           isDesktopViewport: this.state.interface.isDesktopViewport
         };
-        return client.createEntry('orders', OrderTosubmit).then(order => {
-          location.href = order['url'];
+        return client.createEntry('orders', OrderTosubmit).then(result => {
+          if (result['isQrcode']) {
+            navigate('/qrcode/', { state: { qrcode: result['url'] } });
+          }
+          location.href = result['url'];
         });
       }
     }
