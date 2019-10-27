@@ -1,5 +1,4 @@
 import React from 'react';
-import { navigate } from 'gatsby';
 import styled from '@emotion/styled';
 import { handleAuthentication } from '../utils/auth';
 import { colors, fonts } from '../utils/styles';
@@ -19,11 +18,11 @@ const Message = styled.h1`
 `;
 
 export default () => {
-  handleAuthentication(() => navigate('/'));
+  handleAuthentication();
 
   return (
     <Container>
-      <Message>Logging you in...</Message>
+      <Message>登录中...</Message>
     </Container>
   );
 };

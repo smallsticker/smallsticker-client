@@ -208,7 +208,7 @@ const ContentFor = ({ contributor }) => {
   } else {
     return (
       <span>
-        Get Gatsby Swag for <strong>FREE</strong>
+        <strong>查询订单和折扣信息</strong>
       </span>
     );
   }
@@ -306,9 +306,6 @@ class OpenBar extends Component {
             <OpenBarRoot onClick={onClick} className={className}>
               <Content>
                 <Section>
-                  <ButlerBox>
-                    <Butler />
-                  </ButlerBox>
                   <Title>
                     <ContentFor contributor={contributor} />
                   </Title>
@@ -318,7 +315,7 @@ class OpenBar extends Component {
                 </Section>
                 <Section>
                   <Label>
-                    <span>Open Sidebar</span>
+                    <span>打开侧边栏</span>
                   </Label>
                 </Section>
               </Content>

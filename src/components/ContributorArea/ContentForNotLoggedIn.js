@@ -22,31 +22,15 @@ const Button = styled(BaseButton)`
 
 const ContentForGuest = () => (
   <ContentForGuestRoot>
-    <SectionHeading>For Existing Contributors</SectionHeading>
-    <FirstHeading>
-      Get Gatsby Swag for <strong>FREE!</strong>
-    </FirstHeading>
-    <Text>
-      Already contributed to Gatsby? Claim your personal coupon code and get
-      free swag by logging in with your GitHub account!
-    </Text>
-    <Button inverse onClick={e => login()}>
-      Log in with GitHub <GoMarkGithub />
-    </Button>
-    <SectionHeading>For Future Contributors</SectionHeading>
-    <Heading>Never contributed to Gatsby?</Heading>
-    <Text>
-      Let’s get you started with your first contribution to Gatsby! Once you’ve
-      had your first pull request merged into Gatsby, you can come back here to
-      claim free swag.
-    </Text>
+    <FirstHeading>登录查询订单状态</FirstHeading>
 
-    <Button
-      inverse
-      href="https://github.com/search?o=desc&q=org%3Agatsbyjs+type%3Aissue+label%3A%22help%20wanted%22+is%3Aopen&s=updated&type=Issues"
-    >
-      Explore Open Issues
+    <Text>登录与您订单信息里的邮箱地址关联的GitHub账号！</Text>
+    <Button inverse onClick={e => login()}>
+      GitHub登录 <GoMarkGithub />
     </Button>
+    <SectionHeading>广告</SectionHeading>
+    <Heading>满50免运费啦！</Heading>
+    <Text>只要您单笔订单商品总额达到50元，运费我们承担！</Text>
   </ContentForGuestRoot>
 );
 

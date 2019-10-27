@@ -255,30 +255,7 @@ export default class Layout extends React.Component {
 
   async loadContributor(nickname) {
     try {
-      const { data } = await client.mutate({
-        mutation: gql`
-          mutation($user: String!) {
-            updateContributorTags(githubUsername: $user) {
-              email
-              github {
-                username
-                contributionCount
-                pullRequests {
-                  id
-                }
-              }
-              shopify {
-                id
-                codes {
-                  code
-                  used
-                }
-              }
-            }
-          }
-        `,
-        variables: { user: nickname }
-      });
+      const { data } = await client.getEntries('orders');
 
       this.setState(state => ({
         user: {
@@ -357,7 +334,7 @@ export default class Layout extends React.Component {
     const profile = getUserInfo();
 
     // If logged in set user.profile
-    if (profile && profile.nickname) {
+    if (profile && profile.username) {
       this.setState(state => ({
         user: {
           ...state.user,
@@ -367,7 +344,7 @@ export default class Layout extends React.Component {
       }));
 
       // and load the contributor data
-      this.loadContributor(profile.nickname);
+      this.loadContributor(profile.username);
     }
   };
 

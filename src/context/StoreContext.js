@@ -1,7 +1,7 @@
 import React from 'react';
 import Client from 'strapi-sdk-javascript';
 
-const client = new Client('http://10.0.1.12:1337');
+const client = new Client(process.env.STRAPI_API);
 
 export const defaultStoreContext = {
   client,

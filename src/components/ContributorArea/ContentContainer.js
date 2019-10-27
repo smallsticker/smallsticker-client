@@ -77,9 +77,9 @@ const ContentContainer = () => (
         handleLogout,
         loading,
         profile,
-        profile: { nickname }
+        profile: { username }
       }) =>
-        nickname || loading ? (
+        username || loading ? (
           <ContentForLoggedIn
             contributor={contributor}
             error={error}
@@ -90,9 +90,6 @@ const ContentContainer = () => (
         ) : (
           <>
             <ContentForNotLoggedIn />
-            <ButlerBox>
-              <Butler />
-            </ButlerBox>
           </>
         )
       }

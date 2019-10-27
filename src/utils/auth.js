@@ -1,5 +1,7 @@
-import auth0js from 'auth0-js';
-
+import Strapi from 'strapi-sdk-javascript';
+import qs from 'qs';
+import { navigate } from 'gatsby';
+const strapi = new Strapi(process.env.STRAPI_API);
 export const isBrowser = typeof window !== 'undefined';
 
 // To speed things up, we’ll keep the profile stored unless the user logs out.
@@ -12,24 +14,11 @@ const tokens = {
   expiresAt: false
 };
 
-// Only instantiate Auth0 if we’re in the browser.
-const auth0 = isBrowser
-  ? new auth0js.WebAuth({
-      domain: process.env.AUTH0_DOMAIN,
-      clientID: process.env.AUTH0_CLIENTID,
-      redirectUri: process.env.AUTH0_CALLBACK,
-      audience: process.env.AUTH0_AUDIENCE,
-      responseType: 'token id_token',
-      scope: 'openid profile email'
-    })
-  : {};
-
 export const login = () => {
   if (!isBrowser) {
     return;
   }
-
-  auth0.authorize();
+  window.location = strapi.getProviderAuthenticationUrl('github');
 };
 
 export const logout = () => {
@@ -70,15 +59,21 @@ export const silentAuth = callback => {
   }
 
   if (!isAuthenticated()) return callback();
-  auth0.checkSession({}, setSession(callback));
+  // auth0.checkSession({}, setSession(callback));
 };
 
-export const handleAuthentication = (callback = () => {}) => {
+export const handleAuthentication = () => {
   if (!isBrowser) {
     return;
   }
 
-  auth0.parseHash(setSession(callback));
+  const params = qs.parse(window.location.search, { ignoreQueryPrefix: true });
+  strapi.setToken(params.jwt);
+  // localStorage.setItem('isLoggedIn', true);
+  tokens.accessToken = params.jwt;
+  console.log(params);
+  profile = params;
+  navigate('/');
 };
 
 export const isAuthenticated = () => {

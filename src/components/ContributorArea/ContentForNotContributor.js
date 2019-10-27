@@ -28,12 +28,12 @@ class ContentForNotContributor extends Component {
   render() {
     const { issuesVisible } = this.state;
     const {
-      profile: { nickname }
+      profile: { username }
     } = this.props;
 
     return (
       <ContentForNotContributorRoot>
-        <Heading>Hi, @{nickname}!</Heading>
+        <Heading>Hi, @{username}!</Heading>
         <Lede>
           Let’s get you started with your first contribution to Gatsby!
         </Lede>
