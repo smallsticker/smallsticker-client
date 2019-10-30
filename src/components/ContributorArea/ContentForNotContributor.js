@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { Button as BaseButton } from '../shared/Buttons';
-import OpenIssues from './OpenIssues';
 import { Heading, Lede, Text } from './AreaTypography';
 import { spacing, animations } from '../../utils/styles';
 
@@ -15,18 +14,7 @@ const Button = styled(BaseButton)`
 `;
 
 class ContentForNotContributor extends Component {
-  state = {
-    issuesVisible: false
-  };
-
-  showIssuesList = () => {
-    this.setState({
-      issuesVisible: true
-    });
-  };
-
   render() {
-    const { issuesVisible } = this.state;
     const {
       profile: { username }
     } = this.props;
@@ -34,32 +22,14 @@ class ContentForNotContributor extends Component {
     return (
       <ContentForNotContributorRoot>
         <Heading>Hi, @{username}!</Heading>
-        <Lede>
-          Let’s get you started with your first contribution to Gatsby!
-        </Lede>
+        <Text>亲爱的小贴画用户，您还没有购买记录！</Text>
+        <Text>一旦您下单付款成功，您可以再来这里查询实时状态。</Text>
         <Text>
-          Once you’ve had your first pull request merged into Gatsby, you can
-          come back here to claim free swag.
-        </Text>
-        <Text>
-          If you have questions, ask on any issue (you can tag{' '}
+          有问题 (you can tag{' '}
           <a href="https://github.com/jlengstorf">@jlengstorf</a> if you’d like)
           or hit us up{' '}
           <a href="https://twitter.com/gatsbyjs">on Twitter at @gatsbyjs</a>.
         </Text>
-
-        {!issuesVisible ? (
-          <>
-            <Text>
-              Click the button below for issues that we could use help with.
-            </Text>
-            <Button onClick={this.showIssuesList} inverse>
-              Explore Open Issues
-            </Button>
-          </>
-        ) : (
-          <OpenIssues />
-        )}
       </ContentForNotContributorRoot>
     );
   }

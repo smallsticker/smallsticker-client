@@ -255,12 +255,12 @@ export default class Layout extends React.Component {
 
   async loadContributor(nickname) {
     try {
-      const { data } = await client.getEntries('orders');
+      const data = await client.getEntries('orders');
 
       this.setState(state => ({
         user: {
           ...state.user,
-          contributor: data.updateContributorTags,
+          contributor: data,
           loading: false
         }
       }));

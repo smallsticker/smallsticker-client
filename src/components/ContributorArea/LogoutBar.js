@@ -34,10 +34,10 @@ const LogoutBar = ({ error, loading, profile, handleLogout }) =>
   !loading && !error ? (
     <LogoutBarRoot>
       <Info>
-        Logged in as <b>@{profile.nickname}</b>
+        GitHub账号 <b>@{profile.username}</b>
       </Info>
       <Logout onClick={handleLogout} inverse>
-        Log out
+        登出
       </Logout>
     </LogoutBarRoot>
   ) : null;

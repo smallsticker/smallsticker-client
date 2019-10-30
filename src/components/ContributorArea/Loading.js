@@ -48,13 +48,6 @@ const ButlerBox = styled(`span`)`
   }
 `;
 
-const Loading = () => (
-  <LoadingRoot>
-    <ButlerBox>
-      <Butler />
-    </ButlerBox>
-    Loading...
-  </LoadingRoot>
-);
+const Loading = () => <LoadingRoot>载入中...</LoadingRoot>;
 
 export default Loading;

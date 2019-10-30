@@ -5,7 +5,7 @@ export const defaultUserContext = {
   error: false,
   discount: false,
   profile: {},
-  contributor: {},
+  contributor: [],
   handleLogout: () => {},
   updateContributor: () => {}
 };

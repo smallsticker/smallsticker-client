@@ -9,18 +9,12 @@ import LogoutBar from './LogoutBar';
 import Error from './Error';
 
 const ContentFor = ({ contributor, error, loading, profile }) => {
-  const { shopify, github } = contributor;
-
   if (error) {
     return <Error error={error} />;
   } else if (loading) {
     return <Loading />;
-  } else if (github && github.contributionCount) {
-    if (shopify && shopify.id) {
-      return <ContentForContributor />;
-    } else {
-      return <ContentForContributorWithNoAccount />;
-    }
+  } else if (contributor.length > 0) {
+    return <ContentForContributor />;
   } else {
     return <ContentForNotContributor profile={profile} />;
   }
@@ -51,7 +45,7 @@ const ContentForLoggedIn = ({
 );
 
 ContentForLoggedIn.propTypes = {
-  contributor: PropTypes.object,
+  contributor: PropTypes.array,
   error: PropTypes.any,
   handleLogout: PropTypes.func,
   loading: PropTypes.bool,
