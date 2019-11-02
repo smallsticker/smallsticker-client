@@ -153,7 +153,7 @@ class CloseBar extends Component {
 
     return (
       <CloseBarRoot className={className} onClick={onClick}>
-        {isDesktopViewport ? `关闭侧边栏` : `继续购物`}
+        {isDesktopViewport ? `关闭侧边栏` : `继续挑选`}
         {isDesktopViewport ? <MdClose /> : <MdArrowForward />}
       </CloseBarRoot>
     );

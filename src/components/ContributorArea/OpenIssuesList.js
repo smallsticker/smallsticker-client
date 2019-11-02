@@ -3,15 +3,9 @@ import CartThumbnail from '../Cart/CartThumbnail';
 import styled from '@emotion/styled';
 import { keyframes } from '@emotion/core';
 import PropTypes from 'prop-types';
-import { Input } from '../shared/FormElements';
 import { Button } from '../shared/Buttons';
-import {
-  breakpoints,
-  colors,
-  radius,
-  spacing,
-  dimensions
-} from '../../utils/styles';
+import { breakpoints, colors, radius, spacing } from '../../utils/styles';
+
 const OpenIssuesListRoot = styled('ul')`
   list-style: none;
   margin: 0;
@@ -32,33 +26,9 @@ const swing = keyframes`
   }
 `;
 
-const Content = styled(`div`)`
-  bottom: 0;
-  overflow-y: auto;
-  padding: ${spacing.lg}px;
-  position: absolute;
-  top: ${dimensions.headerHeight};
-  width: 100%;
-
-  @media (min-width: ${breakpoints.desktop}px) {
-    ::-webkit-scrollbar {
-      height: 6px;
-      width: 6px;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: ${colors.brandBright};
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: ${colors.lilac};
-    }
-    ::-webkit-scrollbar-track {
-      background: ${colors.brandLight};
-    }
-  }
-`;
-
 const Costs = styled('div')`
   display: flex;
+  color: ${colors.textLight};
   flex-direction: column;
   margin-top: ${spacing.sm}px;
 `;
@@ -72,22 +42,20 @@ const Cost = styled(`div`)`
   }
 
   span {
-    color: ${colors.textMild};
     flex-basis: 60%;
     font-size: 0.9rem;
     text-align: right;
   }
 
   strong {
-    color: ${colors.lilac};
     flex-basis: 40%;
     text-align: right;
   }
 `;
 
 const Total = styled(Cost)`
-  border-top: 1px solid ${colors.brandBright};
-  color: ${colors.brandDark};
+  border-top: 1px solid ${colors.textLight};
+  border-bottom: 1px solid ${colors.textLight};
   margin-top: ${spacing.xs}px;
   padding-top: ${spacing.sm}px;
 
@@ -99,6 +67,7 @@ const Total = styled(Cost)`
   strong,
   span {
     color: inherit;
+    padding-bottom: ${spacing.sm}px;
   }
 `;
 
@@ -112,25 +81,21 @@ const Headers = styled(`div`)`
   border-bottom: 1px solid ${colors.brandBright};
   display: flex;
   justify-content: space-between;
+  padding: ${spacing.md}px 0;
 
   span {
-    color: ${colors.textLight};
     flex-basis: 60px;
     flex-grow: 0;
-    font-size: 0.8rem;
+    font-size: 1rem;
     padding-bottom: ${spacing.xs}px;
     text-align: center;
-
-    &:first-of-type {
-      flex-grow: 1;
-      text-align: left;
-    }
   }
 `;
 
 const CartListItemRoot = styled('li')`
   align-items: center;
-  border-bottom: 1px solid ${colors.brandLight};
+  color: ${colors.textLight};
+  border-bottom: 1px solid ${colors.textLight};
   display: flex;
   justify-content: space-between;
   padding: ${spacing.md}px 0;
@@ -159,7 +124,7 @@ const Meta = styled('span')`
   font-style: normal;
 `;
 
-const Quantity = styled(Input)`
+const Quantity = styled('span')`
   flex-grow: 0;
   height: 44px;
   margin-right: ${spacing.xs}px;
@@ -189,14 +154,15 @@ const Remove = styled(Button)`
 `;
 
 const Link = styled('a')`
-  border-radius: ${radius.large}px;
-  color: ${colors.lightest};
+  color: ${props =>
+    props.disable === true ? colors.textLight : colors.lightest};
   display: block;
-  margin: 0 -${spacing.sm}px ${spacing.xs}px;
-  padding: ${spacing.xs}px ${spacing.sm}px;
   text-decoration: none;
   transition: 1s;
-
+  border: 1px solid
+    ${props => (props.disable === true ? colors.textLight : colors.lightest)};
+  border-radius: ${radius.default}px;
+  pointer-events: ${props => (props.disable === true ? 'none' : '')};
   span {
     color: ${colors.lemon};
   }
@@ -209,12 +175,17 @@ const Link = styled('a')`
 
   @media (hover: hover) {
     :hover {
-      background: ${colors.brandDarker};
+      box-shadow: 0 0 0 1px ${colors.accent};
 
       svg {
         animation: ${swing} 0.5s ease infinite;
       }
     }
+  }
+  @media (hover: focus) {
+    box-shadow: 0 0 0 3px ${colors.accent};
+    outline: 0;
+    transition: box-shadow 0.15s ease-in-out;
   }
 `;
 
@@ -222,53 +193,53 @@ const OpenIssuesList = ({ issues }) => (
   <OpenIssuesListRoot>
     {issues.map(issue => (
       <Issue key={issue.id}>
-        <Content>
-          <Headers>
-            <span>Product</span>
-            <span>Qty.</span>
-            <span>Remove</span>
-          </Headers>
-          <CartListRoot>
-            {issue.checkout.items.map(item => (
-              <CartListItemRoot>
-                <Thumbnail
-                  id={item.variant.image.id}
-                  fallback={item.variant.image.src}
-                  alt={item.variant.image.altText}
-                />
-                <Info>
-                  <Name>{item.title}</Name>
-                  <Meta>
-                    {item.variant.title}, ¥{item.variant.price}
-                  </Meta>
-                </Info>
-                <Quantity
-                  aria-label="Quantity"
-                  id={`quantity_${item.id.substring(58, 64)}`}
-                  type="number"
-                  name="quantity"
-                  min="1"
-                  step="1"
-                  value={item.quantity}
-                />
-              </CartListItemRoot>
-            ))}
-          </CartListRoot>
+        <Headers>
+          <span>{issue.createdAt}</span>
+          <span>{issue.status}</span>
+          <span>
+            <Link
+              href={`https://www.kuaidi100.com/chaxun?com=zhongtong&nu=${issue.expressNo}`}
+              disable={issue.status === '已支付' ? true : false}
+              target="_blank"
+            >
+              快递
+            </Link>
+          </span>
+        </Headers>
+        <CartListRoot>
+          {issue.checkout.items.map(item => (
+            <CartListItemRoot key={item.id}>
+              <Thumbnail
+                id={item.variant.image.id}
+                fallback={item.variant.image.src}
+                alt={item.variant.image.altText}
+              />
+              <Info>
+                <Name>{item.title}</Name>
+                <Meta>
+                  {item.variant.title}, ¥{item.variant.price}
+                </Meta>
+              </Info>
 
-          <Costs>
-            <Cost>
-              <span>小计:</span>{' '}
-              <strong>RMB ¥{issue.checkout.subtotalPrice}</strong>
-            </Cost>
-            <Cost>
-              <span>运费:</span> <strong>RMB ¥{issue.checkout.shipping}</strong>
-            </Cost>
-            <Total>
-              <span>总计:</span>
-              <strong>RMB ¥{issue.checkout.totalPrice}</strong>
-            </Total>
-          </Costs>
-        </Content>
+              <Quantity>{item.quantity}</Quantity>
+            </CartListItemRoot>
+          ))}
+        </CartListRoot>
+
+        <Costs>
+          <Cost>
+            <span>小计:</span>{' '}
+            <strong>RMB ¥{issue.checkout.subtotalPrice}</strong>
+          </Cost>
+          <Cost>
+            <span>运费:</span>
+            <strong>RMB ¥{issue.checkout.shipping}</strong>
+          </Cost>
+          <Total>
+            <span>总计:</span>
+            <strong>RMB ¥{issue.checkout.totalPrice}</strong>
+          </Total>
+        </Costs>
       </Issue>
     ))}
   </OpenIssuesListRoot>
