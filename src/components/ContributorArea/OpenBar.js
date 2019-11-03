@@ -4,7 +4,6 @@ import styled from '@emotion/styled';
 import { keyframes } from '@emotion/core';
 
 import UserContext from '../../context/UserContext';
-import Butler from '../../assets/Butler';
 import ButlerHand from '../../assets/ButlerHand';
 import { breakpoints, colors, fonts, dimensions } from '../../utils/styles';
 
@@ -188,32 +187,6 @@ const Label = styled(`span`)`
   }
 `;
 
-const ContentFor = ({ contributor }) => {
-  let codes = [];
-  let numberOfValidCodes = 0;
-  let numberOfUsedCodes = 0;
-
-  const { shopify } = contributor;
-
-  if (shopify) {
-    codes = shopify.codes;
-    numberOfValidCodes = codes.filter(code => code.used === false).length;
-    numberOfUsedCodes = codes.length - numberOfValidCodes;
-  }
-
-  if (numberOfValidCodes) {
-    return <span>Remember your swag code!</span>;
-  } else if (numberOfUsedCodes === 2) {
-    return <span>Thank you!</span>;
-  } else {
-    return (
-      <span>
-        <strong>查询订单和折扣信息</strong>
-      </span>
-    );
-  }
-};
-
 class OpenBar extends Component {
   state = {
     className: 'closed'
@@ -307,7 +280,9 @@ class OpenBar extends Component {
               <Content>
                 <Section>
                   <Title>
-                    <ContentFor contributor={contributor} />
+                    <span>
+                      <strong>查询订单和优惠信息</strong>
+                    </span>
                   </Title>
                   <ButlerHandBox>
                     <ButlerHand />

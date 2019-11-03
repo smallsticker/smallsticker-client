@@ -253,7 +253,7 @@ export default class Layout extends React.Component {
     setCheckoutInState(newCheckout);
   }
 
-  async loadContributor(nickname) {
+  async loadContributor() {
     try {
       const data = await client.getEntries('orders');
 
@@ -344,7 +344,7 @@ export default class Layout extends React.Component {
       }));
 
       // and load the contributor data
-      this.loadContributor(profile.username);
+      this.loadContributor();
     }
   };
 

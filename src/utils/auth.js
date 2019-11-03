@@ -21,14 +21,14 @@ export const login = () => {
   window.location = strapi.getProviderAuthenticationUrl('github');
 };
 
-export const logout = () => {
+export const logout = callback => {
   localStorage.setItem('isLoggedIn', false);
   profile = false;
 
-  const { protocol, host } = window.location;
-  const returnTo = `${protocol}//${host}`;
+  // const { protocol, host } = window.location;
+  // const returnTo = `${protocol}//${host}`;
 
-  auth0.logout({ returnTo });
+  callback();
 };
 
 const setSession = callback => (err, authResult) => {
@@ -60,6 +60,8 @@ export const silentAuth = callback => {
 
   if (!isAuthenticated()) return callback();
   // auth0.checkSession({}, setSession(callback));
+  localStorage.setItem('isLoggedIn', true);
+  callback();
 };
 
 export const handleAuthentication = () => {
@@ -69,7 +71,7 @@ export const handleAuthentication = () => {
 
   const params = qs.parse(window.location.search, { ignoreQueryPrefix: true });
   strapi.setToken(params.jwt);
-  // localStorage.setItem('isLoggedIn', true);
+  localStorage.setItem('isLoggedIn', true);
   tokens.accessToken = params.jwt;
   console.log(params);
   profile = params;
