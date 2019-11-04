@@ -45,7 +45,6 @@
     "react-icons": "^3.7.0",
     "react-onclickoutside": "^6.8.0",
     "react-router-dom": "^5.0.0",
-    "react-table": "^7.0.0-beta.12",
     "reakit": "^1.0.0-beta.8",
     "recompose": "^0.30.0",
     "strapi-sdk-javascript": "^0.3.3"

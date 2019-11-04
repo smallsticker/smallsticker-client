@@ -6,8 +6,7 @@ import { Input, Select, Submit, Textarea } from '../shared/FormElements';
 import { MdErrorOutline } from 'react-icons/md';
 import { Form, FormField, FormFieldLabel, Boxer } from '@smooth-ui/core-em';
 
-import post from './post';
-
+import * as districtService from './districtService';
 const SubmitButton = styled(Submit)`
   align-self: flex-end;
   flex-grow: 1;
@@ -54,18 +53,25 @@ class OrderForm extends Component {
     phone: '',
     payMethod: '',
     province: '',
-    provinces: post['100000'],
+    provinces: [],
     city: '',
-    cities: {},
+    cities: [],
     district: '',
-    districts: {},
+    districts: [],
     address: '',
     errors: []
   };
 
-  findKey = (obj, value, compare = (a, b) => a === b) => {
-    return Object.keys(obj).find(k => compare(obj[k], value));
-  };
+  // findKey = (obj, value, compare = (a, b) => a === b) => {
+  //   return Object.keys(obj).find(k => compare(obj[k], value));
+  // };
+
+  componentDidMount() {
+    this.setState({
+      ...this.state,
+      provinces: districtService.getProvinces()
+    });
+  }
 
   handleProvinceChange = event => {
     event.preventDefault;
@@ -82,10 +88,14 @@ class OrderForm extends Component {
         this.setState({ errors: errors });
       }
     }
-
+    const value = event.target.value;
     this.setState({
-      [event.target.name]: event.target.value,
-      cities: post[this.findKey(this.state.provinces, event.target.value)]
+      ...this.state,
+      province: value,
+      city: '',
+      district: '',
+      cities: districtService.getCities(districtService.getCodeByRegion(value)),
+      districts: []
     });
   };
   handleCityChange = event => {
@@ -103,10 +113,15 @@ class OrderForm extends Component {
         this.setState({ errors: errors });
       }
     }
+    const value = event.target.value;
 
     this.setState({
-      [event.target.name]: event.target.value,
-      districts: post[this.findKey(this.state.cities, event.target.value)]
+      ...this.state,
+      [event.target.name]: value,
+      district: '',
+      districts: districtService.getDistricts(
+        districtService.getCodeByRegion(value)
+      )
     });
   };
 
@@ -134,25 +149,69 @@ class OrderForm extends Component {
     event.preventDefault();
 
     const errors = [];
+    const emailRE = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const phoneRE = /^\d{11}$/;
 
     if (this.state.email === '') {
       errors.push({
-        field: 'Email',
+        field: '电子邮箱',
         msg: '必须填写'
+      });
+    }
+
+    if (this.state.email && !emailRE.test(this.state.email.toLowerCase())) {
+      errors.push({
+        field: '电子邮箱',
+        msg: '格式错误'
+      });
+    }
+
+    if (this.state.phone === '') {
+      errors.push({
+        field: '手机号码',
+        msg: '必须填写'
+      });
+    }
+
+    if (this.state.phone && !phoneRE.test(this.state.phone)) {
+      errors.push({
+        field: '手机号码',
+        msg: '格式错误'
       });
     }
 
     if (this.state.address === '') {
       errors.push({
-        field: '收件地址',
+        field: '详细地址',
         msg: '必须填写'
+      });
+    }
+
+    if (this.state.province === '') {
+      errors.push({
+        field: '省份',
+        msg: '必须选择'
+      });
+    }
+
+    if (this.state.city === '') {
+      errors.push({
+        field: '城市',
+        msg: '必须选择'
+      });
+    }
+
+    if (this.state.district === '') {
+      errors.push({
+        field: '区县',
+        msg: '必须选择'
       });
     }
 
     if (this.state.payMethod === '') {
       errors.push({
-        field: '收件地址',
-        msg: '必须填写'
+        field: '支付方式',
+        msg: '必须选择'
       });
     }
 
@@ -179,7 +238,7 @@ class OrderForm extends Component {
         {({ submitOrder }) => (
           <Boxer
             width={{ xs: 0.88, sm: 0.8, md: 0.6, lg: 0.5 }}
-            pt="100"
+            pt={spacing.md}
             m="auto"
           >
             <Form onSubmit={this.handleSubmit(submitOrder)} noValidate>
@@ -199,8 +258,9 @@ class OrderForm extends Component {
                 </ErrorMsgs>
               </Errors>
               <FormField>
-                <FormFieldLabel name="email">Email</FormFieldLabel>
+                <FormFieldLabel name="email">电子邮箱</FormFieldLabel>
                 <Input
+                  placeholder="请输入GitHub关联的邮箱"
                   id="email"
                   name="email"
                   type="email"
@@ -209,7 +269,7 @@ class OrderForm extends Component {
                 />
               </FormField>
               <FormField>
-                <FormFieldLabel name="phone">手机号</FormFieldLabel>
+                <FormFieldLabel name="phone">手机号码</FormFieldLabel>
                 <Input
                   id="phone"
                   name="phone"
@@ -229,10 +289,8 @@ class OrderForm extends Component {
                   <option disabled value="">
                     选择省份
                   </option>
-                  {Object.keys(provinces).map(k => (
-                    <option value={provinces[k]} key={k}>
-                      {provinces[k]}
-                    </option>
+                  {Object.keys(this.state.provinces).map((p, index) => (
+                    <option key={index}>{this.state.provinces[p]}</option>
                   ))}
                 </Select>
               </FormField>
@@ -246,11 +304,9 @@ class OrderForm extends Component {
                   <option disabled value="">
                     选择城市
                   </option>
-                  {Object.keys(cities).map(k => {
-                    <option value={cities[k]} key={k}>
-                      {cities[k]}
-                    </option>;
-                  })}
+                  {Object.keys(this.state.cities).map((p, index) => (
+                    <option key={index}>{this.state.cities[p]}</option>
+                  ))}
                 </Select>
               </FormField>
               <FormField>
@@ -263,11 +319,9 @@ class OrderForm extends Component {
                   <option disabled value="">
                     选择区县
                   </option>
-                  {Object.keys(districts).map(k => {
-                    <option value={district[k]} key={k}>
-                      {district[k]}
-                    </option>;
-                  })}
+                  {Object.keys(this.state.districts).map((p, index) => (
+                    <option key={index}>{this.state.districts[p]}</option>
+                  ))}
                 </Select>
               </FormField>
               <FormField>
