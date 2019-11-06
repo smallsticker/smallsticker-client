@@ -33,7 +33,7 @@
     "gatsby-plugin-offline": "^2.1.0",
     "gatsby-plugin-react-helmet": "^3.0.12",
     "gatsby-plugin-sharp": "^2.0.37",
-    "gatsby-source-strapi": "denisgoryaynov/gatsby-source-strapi#build",
+    "gatsby-source-strapi": "^0.0.10",
     "gatsby-transformer-sharp": "^2.1.19",
     "qrcode.react": "^0.9.3",
     "qs": "^6.9.0",

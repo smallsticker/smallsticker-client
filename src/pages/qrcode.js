@@ -13,13 +13,16 @@ const Text = styled(BaseText)`
 `;
 
 export default ({ location }) => {
-  return (
-    <Boxer width={{ xs: 1, sm: 0.8, md: 0.6, lg: 0.5 }} m="auto">
-      <TextContainer>
-        <Text>
-          <QRCode value={location.state.qrcode} />
-        </Text>
-      </TextContainer>
-    </Boxer>
-  );
+  if (location.state) {
+    return (
+      <Boxer width={{ xs: 1, sm: 0.8, md: 0.6, lg: 0.5 }} m="auto">
+        <TextContainer>
+          <Text>
+            <QRCode value={location.state.qrcode} />
+          </Text>
+        </TextContainer>
+      </Boxer>
+    );
+  }
+  return null;
 };
