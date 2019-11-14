@@ -3,8 +3,15 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 import Logo from './Logo';
-
-import { breakpoints, colors, dimensions, spacing } from '../../utils/styles';
+import Search from '../Search';
+import {
+  breakpoints,
+  colors,
+  radius,
+  fonts,
+  dimensions,
+  spacing
+} from '../../utils/styles';
 
 const HeaderRoot = styled('header')`
   align-items: center;
@@ -34,6 +41,67 @@ const HomeLink = styled(Link)`
   flex-shrink: 0;
   line-height: 1;
   margin-right: auto;
+`;
+
+const SearchBox = styled(`div`)`
+  line-height: 1;
+  margin-right: auto;
+  form {
+    display: flex;
+  }
+  input {
+    background-color: ${colors.lightest};
+    border: 1px solid ${colors.brandBright};
+    border-radius: ${radius.default}px;
+    color: ${colors.text};
+
+    font-size: 1rem;
+    padding: ${spacing.sm}px ${spacing.md}px;
+    width: 100%;
+
+    :focus {
+      box-shadow: 0 0 0 3px ${colors.accent};
+      outline: 0;
+      transition: box-shadow 0.15s ease-in-out;
+    }
+  }
+  button {
+    align-items: center;
+    background: ${colors.lightest};
+    border: 1px solid ${colors.brandBright};
+    border-radius: ${radius.default}px;
+    color: ${colors.brandLight};
+    cursor: pointer;
+
+    font-family: ${fonts.heading};
+    font-size: 1rem;
+    justify-content: center;
+    padding: 0.5em 0.75rem;
+    transition: 0.5s;
+
+    :focus {
+      box-shadow: 0 0 0 3px ${colors.accent};
+      outline: 0;
+      transition: box-shadow 0.15s ease-in-out;
+    }
+
+    svg {
+      height: 1em;
+      margin-left: 0.5em;
+      margin-right: 0.5em;
+      width: 1.1em;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        box-shadow: 0 0 0 1px ${colors.accent};
+      }
+    }
+  }
+  &.ais-SearchBox-form {
+    height: 28px;
+    display: none;
+  }
 `;
 
 class Header extends Component {
@@ -71,6 +139,9 @@ class Header extends Component {
         <HomeLink to="/" aria-label="Home page">
           <Logo />
         </HomeLink>
+        <SearchBox>
+          <Search />
+        </SearchBox>
       </HeaderRoot>
     );
   }

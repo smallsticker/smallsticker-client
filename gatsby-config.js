@@ -2,6 +2,38 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`
 });
 
+const myQuery = `{
+    allStrapiProduct(sort: { fields: [createdAt], order: ASC }) {
+      edges {
+        node {
+          id
+          handle
+          title
+          description
+          productType
+          variants {
+            shopifyId: id
+            title
+            price
+            availableForSale
+          }
+        }
+      }
+    }
+}`;
+
+const queries = [
+  {
+    query: myQuery,
+    transformer: ({ data }) =>
+      data.allStrapiProduct.edges.map(({ node }) => node), // optional
+    indexName: 'Products', // overrides main index name, optional
+    settings: {
+      // optional, any index settings
+    }
+  }
+];
+
 module.exports = {
   siteMetadata: {
     siteUrl: 'https://store.gatsbyjs.org',
@@ -27,6 +59,16 @@ module.exports = {
           identifier: process.env.IDENTIFIER,
           password: process.env.PASSWORD
         }
+      }
+    },
+    {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_API_KEY,
+        indexName: process.env.ALGOLIA_INDEX_NAME, // for all queries
+        queries,
+        chunkSize: 10000 // default: 1000
       }
     },
     'gatsby-plugin-react-helmet',
