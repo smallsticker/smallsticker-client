@@ -17,6 +17,10 @@ const myQuery = `{
             price
             availableForSale
           }
+          images {
+            id
+            altText
+          }
         }
       }
     }

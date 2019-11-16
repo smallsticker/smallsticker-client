@@ -44,8 +44,9 @@ const HomeLink = styled(Link)`
 `;
 
 const SearchBox = styled(`div`)`
-  line-height: 1;
-  margin-right: auto;
+  position: absolute;
+  margin-left: 40%;
+  width: 20%;
   form {
     display: flex;
   }
@@ -66,9 +67,10 @@ const SearchBox = styled(`div`)`
     }
   }
   button {
+    margin-left: 4px;
     align-items: center;
     background: ${colors.lightest};
-    border: 1px solid ${colors.brandBright};
+    border: 1px solid ${colors.white};
     border-radius: ${radius.default}px;
     color: ${colors.brandLight};
     cursor: pointer;
@@ -87,9 +89,8 @@ const SearchBox = styled(`div`)`
 
     svg {
       height: 1em;
-      margin-left: 0.5em;
-      margin-right: 0.5em;
-      width: 1.1em;
+
+      width: 1em;
     }
 
     @media (hover: hover) {
@@ -97,10 +98,6 @@ const SearchBox = styled(`div`)`
         box-shadow: 0 0 0 1px ${colors.accent};
       }
     }
-  }
-  &.ais-SearchBox-form {
-    height: 28px;
-    display: none;
   }
 `;
 

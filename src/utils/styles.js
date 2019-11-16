@@ -24,7 +24,8 @@ export const colors = {
   lilac: `#8c65b3`,
   accent: `#ffb238`,
   error: `#ec1818`,
-  lemon: `#ffdf37`
+  lemon: `#ffdf37`,
+  white: `#ffffff`
 };
 
 export const badgeThemes = {
