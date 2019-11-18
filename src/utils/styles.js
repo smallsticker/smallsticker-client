@@ -1,4 +1,4 @@
-import { keyframes } from '@emotion/core';
+import { css, keyframes } from '@emotion/core';
 
 /*
  * NOTE: use a six-character hex code for all colors to allow alpha channel
@@ -133,6 +133,10 @@ const deadSimpleEntry = keyframes`
 `;
 
 export const animations = {
-  simpleEntry: `${simpleEntry} .75s ease forwards`,
-  deadSimpleEntry: `${deadSimpleEntry} .5s ease forwards`
+  simpleEntry: css`
+    ${simpleEntry} .75s ease forwards
+  `,
+  deadSimpleEntry: css`
+    ${deadSimpleEntry} .5s ease forwards
+  `
 };

@@ -1,39 +1,16 @@
 import React from 'react';
 import ReactModal from 'react-modal';
-import styled from '@emotion/styled';
-import {
-  breakpoints,
-  colors,
-  radius,
-  fonts,
-  dimensions,
-  spacing
-} from '../../utils/styles';
+
+import { dimensions } from '../../utils/styles';
 import algoliasearch from 'algoliasearch/lite';
-import {
-  InstantSearch,
-  SearchBox,
-  Hits,
-  PoweredBy
-} from 'react-instantsearch-dom';
+import { InstantSearch, SearchBox } from 'react-instantsearch-dom';
+import Hits from './hits';
 
 const searchClient = algoliasearch(
   'E2NW58E8YJ',
   'd31580cad0de9c8666aadb9d679ea321'
 );
 
-const Modal = styled(ReactModal)`
-  &.Modal {
-    background: ${colors.lightest};
-    position: fixed;
-    top: ${dimensions.headerHeight};
-    left: 30%;
-    right: 30%;
-  }
-  &.Overlay {
-    background: ${colors.lightest};
-  }
-`;
 const customStyles = {
   content: {
     top: `${dimensions.headerHeight}`,
@@ -41,6 +18,9 @@ const customStyles = {
     borderRadius: 'none',
     margin: 'auto',
     width: '40%'
+  },
+  overlay: {
+    background: 'rgba(0, 0, 0, 0.1)'
   }
 };
 
@@ -53,6 +33,13 @@ class Search extends React.Component {
     };
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
+  }
+  componentDidMount() {
+    document.addEventListener('click', this.handleCloseModal);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this.handleCloseModal);
   }
   handleOpenModal() {
     this.setState({ showModal: true });
@@ -83,9 +70,9 @@ class Search extends React.Component {
           onRequestClose={this.handleCloseModal}
           contentLabel="搜索产品"
           style={customStyles}
+          contentRef={node => (this.contentRef = node)}
         >
           <Hits />
-          <PoweredBy />
         </ReactModal>
       </InstantSearch>
     );
