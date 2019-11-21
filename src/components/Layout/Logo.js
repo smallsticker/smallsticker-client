@@ -51,6 +51,6 @@ export default () => (
   <div css={svg}>
     <Monogram />
     <Logotype />
-    <Product />
+    {/* <Product /> */}
   </div>
 );

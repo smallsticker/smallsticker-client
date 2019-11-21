@@ -17,7 +17,7 @@ const ItemLink = styled(Link)`
 const CartListItemRoot = styled('li')`
   align-items: center;
   color: ${colors.textLight};
-  border-bottom: 1px solid ${colors.textLight};
+  border-bottom: 1px solid ${colors.brandLight};
   display: flex;
   justify-content: space-between;
   padding: ${spacing.sm}px 0;
@@ -52,7 +52,7 @@ const Quantity = styled('span')`
   }
 `;
 const Sponsor = styled(`div`)`
-  position: fixed;
+  position: absolute;
   right: 0;
   bottom: 0;
   font-size: 0.1em;

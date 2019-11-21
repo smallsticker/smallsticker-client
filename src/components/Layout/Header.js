@@ -4,14 +4,7 @@ import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 import Logo from './Logo';
 import Search from '../Search';
-import {
-  breakpoints,
-  colors,
-  radius,
-  fonts,
-  dimensions,
-  spacing
-} from '../../utils/styles';
+import { breakpoints, colors, dimensions, spacing } from '../../utils/styles';
 
 const HeaderRoot = styled('header')`
   align-items: center;
@@ -41,64 +34,6 @@ const HomeLink = styled(Link)`
   flex-shrink: 0;
   line-height: 1;
   margin-right: auto;
-`;
-
-const SearchBox = styled(`div`)`
-  position: absolute;
-  margin-left: 40%;
-  width: 20%;
-  form {
-    display: flex;
-  }
-  input {
-    background-color: ${colors.lightest};
-    border: 1px solid ${colors.brandBright};
-    border-radius: ${radius.default}px;
-    color: ${colors.text};
-
-    font-size: 1rem;
-    padding: ${spacing.sm}px ${spacing.md}px;
-    width: 100%;
-
-    :focus {
-      box-shadow: 0 0 0 3px ${colors.accent};
-      outline: 0;
-      transition: box-shadow 0.15s ease-in-out;
-    }
-  }
-  button {
-    margin-left: 4px;
-    align-items: center;
-    background: ${colors.lightest};
-    border: 1px solid ${colors.white};
-    border-radius: ${radius.default}px;
-    color: ${colors.brandLight};
-    cursor: pointer;
-
-    font-family: ${fonts.heading};
-    font-size: 1rem;
-    justify-content: center;
-    padding: 0.5em 0.75rem;
-    transition: 0.5s;
-
-    :focus {
-      box-shadow: 0 0 0 3px ${colors.accent};
-      outline: 0;
-      transition: box-shadow 0.15s ease-in-out;
-    }
-
-    svg {
-      height: 1em;
-
-      width: 1em;
-    }
-
-    @media (hover: hover) {
-      &:hover {
-        box-shadow: 0 0 0 1px ${colors.accent};
-      }
-    }
-  }
 `;
 
 class Header extends Component {
@@ -136,9 +71,7 @@ class Header extends Component {
         <HomeLink to="/" aria-label="Home page">
           <Logo />
         </HomeLink>
-        <SearchBox>
-          <Search />
-        </SearchBox>
+        <Search />
       </HeaderRoot>
     );
   }
