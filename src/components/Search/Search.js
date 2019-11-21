@@ -88,7 +88,6 @@ const Modal = styled(ReactModal)`
     top: ${dimensions.headerHeight};
     width: 100%;
     bottom: 0px;
-
     background: ${colors.lightest};
     overflow: auto;
     webkitoverflowscrolling: touch;
@@ -110,18 +109,6 @@ const Modal = styled(ReactModal)`
     background: rgba(0, 0, 0, 0.1);
   }
 `;
-// const customStyles = {
-//   content: {
-//     top: `${dimensions.headerHeight}`,
-//     borderTop: 'none',
-//     borderRadius: 'none',
-//     margin: 'auto',
-//     width: '40%'
-//   },
-//   overlay: {
-//     background: 'rgba(0, 0, 0, 0.1)'
-//   }
-// };
 
 ReactModal.setAppElement('#___gatsby');
 class Search extends React.Component {
