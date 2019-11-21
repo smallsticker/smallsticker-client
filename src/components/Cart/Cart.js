@@ -9,7 +9,7 @@ import StoreContext from '../../context/StoreContext';
 import CartList from './CartList';
 import CartIndicator from './CartIndicator';
 import EmptyCart from './EmptyCart';
-import FreeBonus from './FreeBonus';
+// import FreeBonus from './FreeBonus';
 import ShippingInfo from './ShippingInfo';
 import { Button, PrimaryButton } from '../shared/Buttons';
 
@@ -339,19 +339,19 @@ class Cart extends Component {
             0
           );
 
-          const showFreeBonus = !checkout.items.some(
-            ({ id }) => id === gatsbyStickerPackID
-          );
+          // const showFreeBonus = !checkout.items.some(
+          //   ({ id }) => id === gatsbyStickerPackID
+          // );
 
           return (
             <CartRoot
               className={`${className} ${
-                this.state.isLoading ? 'loading' : ''
+                this.state.isLoading ? '载入中...' : ''
               }`}
             >
               <Heading>
                 <CartToggle
-                  aria-label={`Shopping cart with ${itemsInCart} items`}
+                  aria-label={`购物车有${itemsInCart}件产品`}
                   onClick={toggle}
                 >
                   {status === 'open' ? (
@@ -366,12 +366,10 @@ class Cart extends Component {
                   )}
                 </CartToggle>
                 <CartIndicator itemsInCart={itemsInCart} adding={adding} />
-                <Title>Your Cart</Title>
+                <Title>购物车</Title>
                 <ItemsInCart>
-                  items
-                  <br />
-                  in cart
-                  <ItemsNumber>{itemsInCart}</ItemsNumber>
+                  件
+                  <br />数<ItemsNumber>{itemsInCart}</ItemsNumber>
                 </ItemsInCart>
               </Heading>
               {checkout.items.length > 0 ? (
@@ -406,7 +404,7 @@ class Cart extends Component {
                     继续挑选
                   </BackLink>
 
-                  {showFreeBonus && <FreeBonus />}
+                  {/* {showFreeBonus && <FreeBonus />} */}
 
                   <ShippingInfo />
                 </Content>

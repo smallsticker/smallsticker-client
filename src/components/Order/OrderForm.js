@@ -217,6 +217,8 @@ class OrderForm extends Component {
 
     if (errors.length) {
       this.setState({ errors: errors });
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
       return;
     }
 

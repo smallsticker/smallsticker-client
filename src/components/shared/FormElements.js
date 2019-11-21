@@ -13,6 +13,7 @@ export const Input = styled(`input`)`
   font-size: 1.1rem;
   padding: ${spacing.sm}px ${spacing.md}px;
   width: 100%;
+  -webkit-appearance: none;
 
   :focus {
     box-shadow: 0 0 0 3px ${colors.accent};
@@ -30,6 +31,7 @@ export const Textarea = styled(`textarea`)`
   font-size: 1.1rem;
   padding: ${spacing.sm}px ${spacing.md}px;
   width: 100%;
+  -webkit-appearance: none;
 
   :focus {
     box-shadow: 0 0 0 3px ${colors.accent};

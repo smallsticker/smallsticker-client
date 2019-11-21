@@ -37,25 +37,25 @@ const CartList = ({
   setCartLoading,
   isCartLoading
 }) => (
-    <>
-      <Headers>
-        <span>Product</span>
-        <span>Qty.</span>
-        <span>Remove</span>
-      </Headers>
-      <CartListRoot>
-        {items.map(item => (
-          <CartListItem
-            key={item.id}
-            item={item}
-            handleRemove={handleRemove(item.id)}
-            updateQuantity={updateQuantity(item.id)}
-            setCartLoading={setCartLoading}
-            isCartLoading={isCartLoading}
-          />
-        ))}
-      </CartListRoot>
-    </>
-  );
+  <>
+    <Headers>
+      <span>产品</span>
+      <span>数量</span>
+      <span>删除</span>
+    </Headers>
+    <CartListRoot>
+      {items.map(item => (
+        <CartListItem
+          key={item.id}
+          item={item}
+          handleRemove={handleRemove(item.id)}
+          updateQuantity={updateQuantity(item.id)}
+          setCartLoading={setCartLoading}
+          isCartLoading={isCartLoading}
+        />
+      ))}
+    </CartListRoot>
+  </>
+);
 
 export default CartList;

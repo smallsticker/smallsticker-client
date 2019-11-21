@@ -28,15 +28,12 @@ class CartIndicator extends Component {
       if (this.props.adding) {
         this.setState({
           visible: true,
-          message: 'updating cart ...'
+          message: '正在放入购物车中...'
         });
       } else {
         if (this.props.itemsInCart > prevProps.itemsInCart) {
           const num = this.props.itemsInCart - prevProps.itemsInCart;
-          const message =
-            num > 1
-              ? `${num} new items have been added to the cart`
-              : `${num} new item has been added to the cart`;
+          const message = `放入购物车${num}件产品`;
 
           this.setState({ message });
 

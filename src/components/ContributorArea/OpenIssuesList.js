@@ -84,7 +84,7 @@ const Headers = styled(`div`)`
   padding: ${spacing.md}px 0;
 
   span {
-    flex-basis: 60px;
+    flex-basis: 80px;
     flex-grow: 0;
     font-size: 1rem;
     padding-bottom: ${spacing.xs}px;
@@ -202,7 +202,7 @@ const OpenIssuesList = ({ issues }) => (
               disable={issue.status === '已支付' ? true : false}
               target="_blank"
             >
-              快递
+              快递跟踪
             </Link>
           </span>
         </Headers>

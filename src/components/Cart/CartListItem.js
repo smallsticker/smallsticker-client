@@ -47,6 +47,7 @@ const Quantity = styled(Input)`
   padding: 0 ${spacing.xs}px 0;
   text-align: center;
   width: 50px;
+  -webkit-appearance: none;
 
   @media (min-width: ${breakpoints.desktop}px) {
     width: 70px;

@@ -107,7 +107,7 @@ const Modal = styled(ReactModal)`
     left: 0;
     right: 0;
     bottom: 0;
-    backgroundcolor: rgba(255, 255, 255, 0.75);
+    background: rgba(0, 0, 0, 0.1);
   }
 `;
 // const customStyles = {
@@ -170,7 +170,7 @@ class Search extends React.Component {
             onRequestClose={this.handleCloseModal}
             contentLabel="搜索产品"
             className="content"
-            overlayClassName="overlay"
+            portalClassName="overlay"
             // style={customStyles}
             contentRef={node => (this.contentRef = node)}
           >
