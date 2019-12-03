@@ -271,8 +271,10 @@ const ProductListingItem = props => {
                 </Price>
                 <Incentive>
                   <span>
-                    view details
-                    <br />& buy <MdArrowForward />
+                    查看产品
+                    <br />
+                    购买
+                    <MdArrowForward />
                   </span>
                   <CartIcon>
                     <MdShoppingCart />

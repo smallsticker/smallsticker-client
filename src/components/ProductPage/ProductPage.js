@@ -77,7 +77,7 @@ class ProductPage extends Component {
             />
           )}
           <Details>
-            <BackLink>Back to Product List</BackLink>
+            <BackLink>回到产品列表</BackLink>
             <ProductSpecs product={product} />
             <ProductForm id={id} variants={variants} />
           </Details>

@@ -189,7 +189,7 @@ class ProductForm extends Component {
               </ErrorMsgs>
             </Errors>
             <QtyFieldset>
-              <Label htmlFor="quantity">Qty.</Label>
+              <Label htmlFor="quantity">数量</Label>
               <Input
                 type="number"
                 id="quantity"
@@ -203,10 +203,10 @@ class ProductForm extends Component {
             {hasVariants && (
               <SizeFieldset>
                 <Label htmlFor="variant">
-                  Size{' '}
+                  规格{' '}
                   <Link to="/product-details">
                     <MdInfoOutline />
-                    <span>Size Chart</span>
+                    <span>规格表</span>
                   </Link>
                 </Label>
                 <Select
@@ -216,7 +216,7 @@ class ProductForm extends Component {
                   onChange={this.handleChange}
                 >
                   <option disabled value="">
-                    Choose Size
+                    选择规格
                   </option>
                   {variants.map(variant => (
                     <option
@@ -235,16 +235,16 @@ class ProductForm extends Component {
               disabled={isOutOfStock}
               fullWidth={hasVariants}
             >
-              {isOutOfStock ? 'Out of Stock' : 'Add to Cart'}
+              {isOutOfStock ? '无货' : '放入购物车'}
               {isOutOfStock ? <MdSentimentDissatisfied /> : <MdShoppingCart />}
             </AddToCartButton>
             <InfoLinks>
               <Link to="/product-details?fromProduct#materials-fit">
-                <span>Materials &amp; Fit</span>
+                <span>材料和规格</span>
               </Link>
               &nbsp; • &nbsp;
               <Link to="/product-details?fromProduct#care-instructions">
-                <span>Care instructions</span>
+                <span>注意事项</span>
               </Link>
             </InfoLinks>
           </Form>

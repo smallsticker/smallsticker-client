@@ -191,7 +191,7 @@ export default class Layout extends React.Component {
       submitOrder: (email, phone, address, payMethod) => {
         const { checkout, client } = this.state.store;
         const checkoutId = checkout.id;
-        const OrderTosubmit = {
+        const OrderToSubmit = {
           checkout: checkoutId,
           email,
           phone,
@@ -199,9 +199,21 @@ export default class Layout extends React.Component {
           payMethod,
           isDesktopViewport: this.state.interface.isDesktopViewport
         };
-        return client.createEntry('orders', OrderTosubmit).then(result => {
+        return client.createEntry('orders', OrderToSubmit).then(result => {
           if (result['isQrcode']) {
-            navigate('/qrcode/', { state: { qrcode: result['url'] } });
+            navigate(`/qrcode?out_trade_no=${result['outTradeNo']}`, {
+              state: { qrcode: result['url'] }
+            });
+          }
+          if (result['isH5']) {
+            return (location.href =
+              result['url'] +
+              '&redirect_url=' +
+              encodeURIComponent(
+                `${process.env.HOST}/pay-return&out_trade_no=${
+                  result['outTradeNo']
+                }`
+              ));
           }
           location.href = result['url'];
         });

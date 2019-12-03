@@ -59,8 +59,8 @@ const SizeChartTable = ({ unit }) => {
       <Table>
         <tbody>
           <tr>
-            <ThLeft>Style</ThLeft>
-            <ThBrand>Sizes</ThBrand>
+            <ThLeft>规格</ThLeft>
+            <ThBrand>大小</ThBrand>
             <ThBrand>S</ThBrand>
             <ThBrand>M</ThBrand>
             <ThBrand>L</ThBrand>

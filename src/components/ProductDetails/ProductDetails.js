@@ -71,12 +71,12 @@ const UnitSelector = ({ setUnits, unit }) => {
 
   return (
     <UnitWrapper>
-      <UnitsLabel>Units:</UnitsLabel>
+      <UnitsLabel>单位:</UnitsLabel>
       <UnitOption value="in" active={unit === 'in'} onClick={handleClick}>
-        in
+        英寸
       </UnitOption>
       <UnitOption value="cm" active={unit === 'cm'} onClick={handleClick}>
-        cm
+        厘米
       </UnitOption>
     </UnitWrapper>
   );
@@ -100,21 +100,21 @@ class ProductDetails extends React.Component {
 
     return (
       <ProductTextContainer>
-        <Heading>Product Details</Heading>
-        <BackButton>Back to Product</BackButton>
+        <Heading>产品详情</Heading>
+        <BackButton>回到产品</BackButton>
         <Section id="size-chart">
-          <SectionHeading>Size Chart</SectionHeading>
+          <SectionHeading>规格表</SectionHeading>
           <UnitSelector unit={units} setUnits={this.changeUnits} />
           <SizeChartTable unit={units} />
           <p>
             <strong style={{ color: colors.brand }}>
-              Don’t see your size?
+              没有看到您想要的大小？
             </strong>{' '}
-            Send us an email team@gatsbyjs.com and we’ll see if we can help!
+            发邮件到 team@gatsbyjs.com，如果合理，我们会添加该规格！
           </p>
         </Section>
         <Section id="materials-fit">
-          <SectionHeading>T-Shirt Materials &amp; Fit</SectionHeading>
+          <SectionHeading>贴纸材料和规格说明</SectionHeading>
           <p>
             To help you find the right size and fit, here are some additional
             details about our t-shirts.
@@ -139,7 +139,7 @@ class ProductDetails extends React.Component {
         </Section>
 
         <Section id="care-instructions">
-          <SectionHeading>Care Instructions</SectionHeading>
+          <SectionHeading>注意事项</SectionHeading>
           <SubHeading>Socks</SubHeading>
           <p>
             Keep those socks comfy on your feet and looking bright by washing

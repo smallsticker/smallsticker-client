@@ -56,7 +56,7 @@ const ProductSpecs = props => {
       <Name>{title}</Name>
       <Description>{removeCareInstructions(description)}</Description>
       <Price>
-        <span>USD</span> ${price}
+        <span>RMB</span> ¥{price}
       </Price>
     </ProductSpecsRoot>
   );

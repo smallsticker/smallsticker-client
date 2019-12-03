@@ -293,7 +293,7 @@ class ProductImagesBrowser extends Component {
         <Actions>
           <CloseButton onClick={this.close(toggle)} ref={this.closeButton}>
             <MdClose />
-            Close
+            关闭
           </CloseButton>
           <ActionsThumbnails images={images} />
         </Actions>
