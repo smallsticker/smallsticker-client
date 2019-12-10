@@ -4,7 +4,6 @@ import styled from '@emotion/styled';
 
 import { navigate } from 'gatsby';
 
-import { client } from '../../context/ApolloContext';
 import StoreContext, { defaultStoreContext } from '../../context/StoreContext';
 import UserContext, { defaultUserContext } from '../../context/UserContext';
 import InterfaceContext, {
@@ -23,6 +22,7 @@ import { breakpoints, colors } from '../../utils/styles';
 
 // Import Futura PT typeface
 import '../../fonts/futura-pt/Webfonts/futurapt_demi_macroman/stylesheet.css';
+import _ from 'lodash/core';
 
 const globalStyles = css`
   html {
@@ -130,9 +130,11 @@ export default class Layout extends React.Component {
     },
     store: {
       ...defaultStoreContext,
+      replaceCart: async () => {
+        await this.initializeCheckout();
+      },
       addVariantToCart: (variantId, quantity) => {
         if (variantId === '' || !quantity) {
-          console.error('Both a size and quantity are required.');
           return;
         }
 
@@ -202,7 +204,7 @@ export default class Layout extends React.Component {
         return client.createEntry('orders', OrderToSubmit).then(result => {
           if (result['isQrcode']) {
             navigate(`/qrcode?out_trade_no=${result['outTradeNo']}`, {
-              state: { qrcode: result['url'] }
+              state: { qrcode: result['url'], outTradeNo: result['outTradeNo'] }
             });
           }
           if (result['isH5']) {
@@ -227,7 +229,6 @@ export default class Layout extends React.Component {
     const existingCheckoutID = isBrowser
       ? localStorage.getItem('shopify_checkout_id')
       : null;
-
     const setCheckoutInState = checkout => {
       if (isBrowser) {
         localStorage.setItem('shopify_checkout_id', checkout.id);
@@ -266,7 +267,7 @@ export default class Layout extends React.Component {
 
   async loadContributor() {
     try {
-      const data = await client.getEntries('orders');
+      const data = await this.state.store.client.getEntries('orders');
 
       this.setState(state => ({
         user: {

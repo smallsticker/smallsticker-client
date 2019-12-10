@@ -13,7 +13,8 @@ export const defaultStoreContext = {
   addVariantToCart: () => {},
   removeLineItem: () => {},
   updateLineItem: () => {},
-  submitOrder: () => {}
+  submitOrder: () => {},
+  replaceCart: () => {}
 };
 
 const StoreContext = React.createContext(defaultStoreContext);

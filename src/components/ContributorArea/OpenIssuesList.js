@@ -137,22 +137,6 @@ const Quantity = styled('span')`
   }
 `;
 
-const Remove = styled(Button)`
-  border: 1px dotted ${colors.textLighter};
-  display: flex;
-  height: 44px;
-  justify-content: center;
-  margin-right: ${spacing['2xs']}px;
-  padding: 0;
-  width: 44px;
-
-  svg {
-    height: 24px;
-    margin: 0;
-    width: 24px;
-  }
-`;
-
 const Link = styled('a')`
   color: ${props =>
     props.disable === true ? colors.textLight : colors.lightest};
