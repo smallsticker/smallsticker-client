@@ -25,10 +25,10 @@ class ContentForNotContributor extends Component {
         <Text>亲爱的小贴画用户，您还没有购买记录！</Text>
         <Text>一旦您下单付款成功，您可以再来这里查询实时状态。</Text>
         <Text>
-          有问题 (you can tag{' '}
-          <a href="https://github.com/jlengstorf">@jlengstorf</a> if you’d like)
-          or hit us up{' '}
-          <a href="https://twitter.com/gatsbyjs">on Twitter at @gatsbyjs</a>.
+          有问题？在微博上{' '}
+          <a href="https://twitter.com/gatsbyjs">@smallsticker</a>
+          或者发邮件到{' '}
+          <a href="mailto:team@smallsticker.com">team@smallsticker.com</a>
         </Text>
       </ContentForNotContributorRoot>
     );

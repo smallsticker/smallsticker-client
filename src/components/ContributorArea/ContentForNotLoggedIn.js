@@ -28,9 +28,9 @@ const ContentForGuest = () => (
     <Button inverse onClick={e => login()}>
       GitHub登录 <GoMarkGithub />
     </Button>
-    <SectionHeading>广告</SectionHeading>
+    <SectionHeading>优惠信息</SectionHeading>
     <Heading>满50免运费啦！</Heading>
-    <Text>只要您单笔订单商品总额达到50元，运费我们承担！</Text>
+    <Text>单笔订单商品总额达到50元，免运费！</Text>
   </ContentForGuestRoot>
 );
 

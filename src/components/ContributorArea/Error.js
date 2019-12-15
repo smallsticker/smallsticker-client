@@ -39,19 +39,18 @@ const Error = ({ error }) => (
   <ErrorRoot>
     <Heading>
       <MdSentimentDissatisfied />
-      There was an error loading your discount code.
+      载入您的订单信息时候出错
     </Heading>
-    <Text>Here’s what came back from the server:</Text>
+    <Text>以下是来自服务器的错误信息：</Text>
     <ErrorText>
       <pre>{error}</pre>
     </ErrorText>
     <Text>
-      Please reload the page and try again. If a page refresh doesn’t clear
-      things up, please{' '}
+      请重新载入页面，试一下. 如果仍有问题，可以{' '}
       <a href="https://github.com/gatsbyjs/store.gatsbyjs.org/issues">
-        open an issue
+        打开一个issue
       </a>{' '}
-      and we’ll figure out what’s going on.
+      我们将找出问题出在哪儿。
     </Text>
   </ErrorRoot>
 );

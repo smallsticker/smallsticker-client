@@ -51,24 +51,27 @@ const Spacer = styled(`span`)`
 const Footer = () => (
   <FooterRoot>
     <Row>
-      <b>Got questions?&nbsp;</b>
+      <b>有问题？&nbsp;</b>
     </Row>
     <Row>
-      Talk to us on Twitter <a href="https://twitter.com/gatsbyjs">@gatsbyjs</a>
+      在微博上 <a href="https://twitter.com/gatsbyjs">@smallsticker</a>
     </Row>
     <Row>
-      &nbsp;or send an email to{' '}
-      <a href="mailto:team@gatsbyjs.com">team@gatsbyjs.com</a>
-    </Row>
-    <Spacer>•</Spacer>
-    <Row>
-      Built with 💜 by the{' '}
-      <a href="https://www.gatsbyjs.com/">Gatsby Inkteam</a>
+      &nbsp;或者发邮件到{' '}
+      <a href="mailto:team@smallsticker.com">team@smallsticker.com</a>
     </Row>
     <Spacer>•</Spacer>
+    <Row>© 2017-2020 北京小贴画科技有限公司</Row>
+    <Spacer>•</Spacer>
+    <Row>京ICP备 17007173号</Row>
+    <Spacer>•</Spacer>
     <Row>
-      See the source code on{' '}
-      <a href="https://github.com/gatsbyjs/store.gatsbyjs.org">GitHub</a>
+      <a
+        href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502032685"
+        target="_blank"
+      >
+        京公网安备 11010502032685号
+      </a>
     </Row>
   </FooterRoot>
 );

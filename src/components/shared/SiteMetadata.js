@@ -23,8 +23,7 @@ export default () => (
       <Helmet defaultTitle={title} titleTemplate={`%s · ${title}`}>
         <html lang="en" />
 
-        <link rel="preconnect" href="https://gatsby-swag.myshopify.com" />
-        <link rel="preconnect" href="https://api.gatsbyjs.org" />
+        <link rel="preconnect" href="https://backend.smallsticker.com" />
 
         <link rel="canonical" href={siteUrl} />
         <link
@@ -70,7 +69,7 @@ export default () => (
         <meta property="og:image:height" content="686" />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@gatsbyjs" />
+        <meta name="twitter:site" content="@smallsticker" />
       </Helmet>
     )}
   />

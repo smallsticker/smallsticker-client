@@ -84,14 +84,13 @@ class ShippingInfo extends Component {
       <ShippingInfoRoot className={detailsVisible ? 'expanded' : ''}>
         <Intro role="button" onClick={this.toggle}>
           <InfoIcon />
-          International shipments can take <strong>6 weeks or more</strong> to
-          be delivered. <ArrowIcon />
+          每天<strong>17:30</strong>之前的订单，当天发货，之后的订单第二天发货。
+          <ArrowIcon />
         </Intro>
         <Details>
-          Tracking updates may not always show up in real time on your tracking
-          link. If you still have not received your order at the end of 6 weeks,
-          please let us know by sending an email to{' '}
-          <a href="mailto:team@gatsbyjs.com">team@gatsbyjs.com</a>
+          国内快递一般3日内收到货，您可以登录查询快递实时状态跟踪，如果您认为快递有问题，可以发邮件到{' '}
+          <a href="mailto:team@smallsticker.com">team@smallsticker.com</a>
+          跟我们取得联系。
         </Details>
       </ShippingInfoRoot>
     );

@@ -212,7 +212,7 @@ export default class Layout extends React.Component {
               result['url'] +
               '&redirect_url=' +
               encodeURIComponent(
-                `${process.env.HOST}/pay-return&out_trade_no=${
+                `${process.env.HOST}/pay-return?out_trade_no=${
                   result['outTradeNo']
                 }`
               ));

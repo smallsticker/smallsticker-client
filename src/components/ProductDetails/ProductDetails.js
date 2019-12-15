@@ -72,11 +72,11 @@ const UnitSelector = ({ setUnits, unit }) => {
   return (
     <UnitWrapper>
       <UnitsLabel>单位:</UnitsLabel>
-      <UnitOption value="in" active={unit === 'in'} onClick={handleClick}>
-        英寸
-      </UnitOption>
       <UnitOption value="cm" active={unit === 'cm'} onClick={handleClick}>
         厘米
+      </UnitOption>
+      <UnitOption value="in" active={unit === 'in'} onClick={handleClick}>
+        英寸
       </UnitOption>
     </UnitWrapper>
   );
@@ -86,7 +86,7 @@ class ProductDetails extends React.Component {
   constructor() {
     super();
     this.state = {
-      units: 'in'
+      units: 'cm'
     };
     this.changeUnits = this.changeUnits.bind(this);
   }
@@ -110,48 +110,48 @@ class ProductDetails extends React.Component {
             <strong style={{ color: colors.brand }}>
               没有看到您想要的大小？
             </strong>{' '}
-            发邮件到 team@gatsbyjs.com，如果合理，我们会添加该规格！
+            发邮件到
+            <a href="mailto:team@smallsticker.com">team@smallsticker.com</a>
+            ，如果合理，我们会添加该规格
           </p>
         </Section>
         <Section id="materials-fit">
           <SectionHeading>贴纸材料和规格说明</SectionHeading>
           <p>
-            To help you find the right size and fit, here are some additional
-            details about our t-shirts.
+            精选进口3M材料、艺术品保护级Avery
+            Dennison（艾利丹尼森）保护膜，爱普生绿色环保原装墨水
           </p>
-          <SubHeading>Dark Deploy Tee</SubHeading>
+          <SubHeading>模切贴纸</SubHeading>
           <UnorderedList>
-            <li>Material: 50% polyester, 25% cotton, 25% rayon</li>
-            <li>Fit:</li>
+            <li>印刷设备: Epson(爱普生) SureColor S80680</li>
+            <li>切割设备: Roland(罗兰) CAMM-1 GS-24</li>
+
+            <li>材料:</li>
             <NestedUnorderedList>
-              <li>Unisex sizes: regular/retail fit</li>
-              <li>Women’s sizes: semi-relaxed fit</li>
-            </NestedUnorderedList>
-          </UnorderedList>
-          <SubHeading>Purple Logo Tee</SubHeading>
-          <UnorderedList>
-            <li>Material: 100% cotton</li>
-            <li>Fit:</li>
-            <NestedUnorderedList>
-              <li>All sizes: regular/retail fit</li>
+              <li>
+                墨水：通过GREENGUARD
+                室内空气质量认证的Epson(爱普生)“活的色彩GS3”/“活的色彩GS3
+                RED”溶剂墨水
+              </li>
+              <li>背胶：Avery Dennison(艾利丹尼森) MP2-3004延压级三年可移除</li>
+              <li>
+                保护膜：Avery
+                Dennison（艾利丹尼森）DOL3100哑面冷裱膜防紫外线延压级
+              </li>
             </NestedUnorderedList>
           </UnorderedList>
         </Section>
 
         <Section id="care-instructions">
           <SectionHeading>注意事项</SectionHeading>
-          <SubHeading>Socks</SubHeading>
+          <SubHeading>模切贴纸</SubHeading>
           <p>
-            Keep those socks comfy on your feet and looking bright by washing
-            them in cold water with darker colors. Tumble dry on low so they
-            don’t shrink!
+            第一步，拭去设备上的灰尘等污物，拿产品放在要贴的地方，大概确定黏贴的位置
           </p>
-          <SubHeading>T-Shirts</SubHeading>
           <p>
-            Machine wash cold and tumble dry only. These shirts can’t take the
-            heat (literally)! We want to make sure you’re happy with our shirts,
-            but they require a little TLC.
+            第二步，撕去底纸，轻轻放在要贴的位置，慢慢推贴纸，调整方向，完全确定黏贴位置
           </p>
+          <p>第三步，从任意一侧，慢慢推平贴纸，防止气泡产生，黏贴完毕</p>
         </Section>
       </ProductTextContainer>
     );

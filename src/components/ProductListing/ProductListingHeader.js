@@ -41,12 +41,8 @@ const Intro = styled(`p`)`
 
 const ProductListingHeader = () => (
   <ProductListingHeaderRoot>
-    <Title>Get Gatsby Swag!</Title>
-    <Intro>
-      The money we charge for swag helps to cover production and shipping costs.
-      In the unlikely event that Gatsby swag ends up turning a profit, we’ll
-      reinvest that money into the open source community.
-    </Intro>
+    <Title>送给自己一张贴纸！</Title>
+    <Intro>送给自己一张贴纸，激励自己，表达自己的喜欢，同时支持开源社区</Intro>
   </ProductListingHeaderRoot>
 );
 

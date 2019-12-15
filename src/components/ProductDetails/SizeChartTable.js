@@ -61,71 +61,13 @@ const SizeChartTable = ({ unit }) => {
           <tr>
             <ThLeft>规格</ThLeft>
             <ThBrand>大小</ThBrand>
-            <ThBrand>S</ThBrand>
-            <ThBrand>M</ThBrand>
-            <ThBrand>L</ThBrand>
-            <ThBrand>XL</ThBrand>
-            <ThBrand>2XL</ThBrand>
+            <ThBrand>均码</ThBrand>
           </tr>
           <Tr>
-            <TdLeft>Unisex Body Length</TdLeft>
+            <TdLeft>白边模切贴纸</TdLeft>
             <Td>
-              <Size>27.5</Size>–<Size>28</Size>
+              <Size>2.2</Size>–<Size>2.4</Size>
             </Td>
-            <Td>
-              <Size>28.5</Size>–<Size>29</Size>
-            </Td>
-            <Td>
-              <Size>29.5</Size>–<Size>30</Size>
-            </Td>
-            <Td>
-              <Size>30.5</Size>–<Size>31</Size>
-            </Td>
-            <Td>
-              <Size>31.5</Size>–<Size>32</Size>
-            </Td>
-          </Tr>
-          <Tr>
-            <TdLeft>Unisex Chest</TdLeft>
-            <Td>
-              <Size>36</Size>–<Size>38</Size>
-            </Td>
-            <Td>
-              <Size>39</Size>–<Size>41</Size>
-            </Td>
-            <Td>
-              <Size>42</Size>–<Size>44</Size>
-            </Td>
-            <Td>
-              <Size>45</Size>–<Size>48</Size>
-            </Td>
-            <Td>
-              <Size>49</Size>–<Size>52</Size>
-            </Td>
-          </Tr>
-          <Tr>
-            <TdLeft>Women Body Length</TdLeft>
-            <Td>
-              <Size>25.375</Size>–<Size>26.5</Size>
-            </Td>
-            <Td>
-              <Size>26</Size>–<Size>27</Size>
-            </Td>
-            <Td>—</Td>
-            <Td>—</Td>
-            <Td>—</Td>
-          </Tr>
-          <Tr last>
-            <TdLeft>Women Chest</TdLeft>
-            <Td>
-              <Size>29.5</Size>–<Size>32.5</Size>
-            </Td>
-            <Td>
-              <Size>31.5</Size>–<Size>34.5</Size>
-            </Td>
-            <Td>—</Td>
-            <Td>—</Td>
-            <Td>—</Td>
           </Tr>
         </tbody>
       </Table>

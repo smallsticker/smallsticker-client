@@ -54,7 +54,7 @@ const ProductPageTemplate = props => {
             <meta property="og:image:height" content="600" />
 
             <meta name="twitter:card" content="summary" />
-            <meta name="twitter:site" content="@gatsbyjs" />
+            <meta name="twitter:site" content="@smallsticker" />
           </Helmet>
           <ProductPage
             product={product}

@@ -40,10 +40,9 @@ const queries = [
 
 module.exports = {
   siteMetadata: {
-    siteUrl: 'https://store.gatsbyjs.org',
-    title: 'Holy buckets! Get your Gatsby swag here!',
-    description:
-      'Do you like spaced-out socks? All purple everything? Hitting #maximumcomf with JAMstack Jammies? Oh boy have we got the swag store for you!'
+    siteUrl: 'https://test.smallsticker.com',
+    title: '在这儿，找到您喜欢的贴纸！',
+    description: '为了程序员方便买到喜欢的贴纸，我们建立这个贴纸商店！'
   },
   plugins: [
     {
@@ -80,8 +79,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'Gatsby Store',
-        short_name: 'Gatsby Store',
+        name: '小贴画',
+        short_name: '小贴画',
         start_url: '/',
         background_color: '#ffffff',
         theme_color: '#663399',

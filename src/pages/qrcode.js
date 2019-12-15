@@ -43,15 +43,18 @@ export default class QR extends React.Component {
   }
 
   render() {
-    return (
-      <Boxer width={{ xs: 1, sm: 0.8, md: 0.6, lg: 0.5 }} m="auto">
-        <TextContainer>
-          <Tips>请使用微信扫码完成支付</Tips>
-          <Text>
-            <QRCode value={this.props.location.state.qrcode} />
-          </Text>
-        </TextContainer>
-      </Boxer>
-    );
+    if (this.props.location.state) {
+      return (
+        <Boxer width={{ xs: 1, sm: 0.8, md: 0.6, lg: 0.5 }} m="auto">
+          <TextContainer>
+            <Tips>请使用微信扫码完成支付</Tips>
+            <Text>
+              <QRCode value={this.props.location.state.qrcode} />
+            </Text>
+          </TextContainer>
+        </Boxer>
+      );
+    }
+    return null;
   }
 }

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import ContentForNotContributor from './ContentForNotContributor';
-import ContentForContributorWithNoAccount from './ContentForContributorWithNoAccount';
 import ContentForContributor from './ContentForContributor';
 import Loading from './Loading';
 import LogoutBar from './LogoutBar';

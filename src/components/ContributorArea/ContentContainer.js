@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 import { keyframes } from '@emotion/core';
 
 import UserContext from '../../context/UserContext';
-import Butler from '../../assets/Butler';
 import ContentForNotLoggedIn from './ContentForNotLoggedIn';
 import ContentForLoggedIn from './ContentForLoggedIn';
 
