@@ -99,13 +99,8 @@ const EmptyCart = () => (
   <EmptyCartRoot>
     <SadCart />
     <SadCartCopy>
-      <p>
-        Your Cart is sad{' '}
-        <span role="img" aria-label="sad face">
-          😔
-        </span>
-      </p>
-      <p>Turn that frown upside down with swag!</p>
+      <p>您的购物车很不开心 </p>
+      <p>快快选购塞满它吧！</p>
     </SadCartCopy>
   </EmptyCartRoot>
 );

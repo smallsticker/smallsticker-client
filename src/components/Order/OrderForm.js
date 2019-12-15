@@ -258,7 +258,7 @@ class OrderForm extends Component {
               <FormField>
                 <FormFieldLabel name="email">电子邮箱</FormFieldLabel>
                 <Input
-                  placeholder="请输入GitHub关联的邮箱"
+                  placeholder="请输入注册GitHub的邮箱"
                   id="email"
                   name="email"
                   type="email"

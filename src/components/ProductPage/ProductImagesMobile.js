@@ -82,14 +82,14 @@ const ProductImagesMobile = ({ images, imageOnClick }) => (
       <Incentive>
         <h3>
           <MdCameraAlt />
-          We want to see your Gatsby swag photos!
+          我们想要看到贴纸在您的装备上的效果
         </h3>
         <p>
-          Upload your photos to{' '}
-          <a href="https://github.com/gatsbyjs/store.gatsbyjs.org/issues/143">
-            the official photo sharing issue
+          上传您的照片到{' '}
+          <a href="https://github.com/smallsticker/smallsticker-client/issues/1">
+            官方图片分享 issue
           </a>{' '}
-          and it may be featured in the store!
+          您的照片有机会放到小贴画网站上哦！
         </p>
       </Incentive>
     </ProductImagesMobileContent>

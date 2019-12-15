@@ -138,7 +138,7 @@ class CommunityCaption extends Component {
       >
         <Caption>
           {minimized ? (
-            <p>Show caption</p>
+            <p>查看提示</p>
           ) : (
             <p dangerouslySetInnerHTML={{ __html: caption }} />
           )}
@@ -147,14 +147,14 @@ class CommunityCaption extends Component {
           onClick={this.toggleIncentive}
           className={hintExpanded ? 'expanded' : ''}
         >
-          <span>We want to see your Gatsby swag photos!</span>{' '}
-          <strong>Read more...</strong>
+          <span>我们想要看到贴纸在您的装备上的效果</span>{' '}
+          <strong>更多...</strong>
           <span>
-            Upload your photos to{' '}
-            <a href="https://github.com/gatsbyjs/store.gatsbyjs.org/issues/143">
-              the official photo sharing issue
+            上传您的照片到{' '}
+            <a href="https://github.com/smallsticker/smallsticker-client/issues/1">
+              官方图片分享 issue
             </a>{' '}
-            and it may be featured in the store!
+            您的照片有机会放到小贴画网站上哦！
           </span>
         </UserPhotoHint>
         <Toggle onClick={this.toggle}>
