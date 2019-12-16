@@ -54,7 +54,7 @@ const Footer = () => (
       <b>有问题？&nbsp;</b>
     </Row>
     <Row>
-      在微博上 <a href="https://twitter.com/gatsbyjs">@smallsticker</a>
+      在微博上 <a href="https://weibo.com/u/7356081466">@small-sticker</a>
     </Row>
     <Row>
       &nbsp;或者发邮件到{' '}
@@ -63,14 +63,14 @@ const Footer = () => (
     <Spacer>•</Spacer>
     <Row>© 2017-2020 北京小贴画科技有限公司</Row>
     <Spacer>•</Spacer>
-    <Row>京ICP备 17007173号</Row>
+    <Row>京ICP备17007173号</Row>
     <Spacer>•</Spacer>
     <Row>
       <a
         href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502032685"
         target="_blank"
       >
-        京公网安备 11010502032685号
+        京公网安备11010502032685号
       </a>
     </Row>
   </FooterRoot>

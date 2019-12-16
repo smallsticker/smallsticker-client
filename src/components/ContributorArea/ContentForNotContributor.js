@@ -26,7 +26,7 @@ class ContentForNotContributor extends Component {
         <Text>一旦您下单付款成功，您可以再来这里查询实时状态。</Text>
         <Text>
           有问题？在微博上{' '}
-          <a href="https://twitter.com/gatsbyjs">@smallsticker</a>
+          <a href="https://weibo.com/u/7356081466">@smallsticker</a>
           或者发邮件到{' '}
           <a href="mailto:team@smallsticker.com">team@smallsticker.com</a>
         </Text>

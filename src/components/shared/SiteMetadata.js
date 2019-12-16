@@ -63,13 +63,13 @@ export default () => (
         />
         <meta
           property="og:image:alt"
-          content="Gatsby Socks using Dora for scale."
+          content="为了程序员方便买到喜欢的贴纸，我们建立这个贴纸商店"
         />
         <meta property="og:image:width" content="1280" />
         <meta property="og:image:height" content="686" />
 
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@smallsticker" />
+        <meta name="weibo:card" content="summary_large_image" />
+        <meta name="weibo:site" content="@small-sticker" />
       </Helmet>
     )}
   />

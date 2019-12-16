@@ -149,7 +149,7 @@ class Search extends React.Component {
               this.handleCloseModal();
             }}
             translations={{
-              placeholder: '产品搜索'
+              placeholder: '搜索产品...'
             }}
           />
           <Modal
