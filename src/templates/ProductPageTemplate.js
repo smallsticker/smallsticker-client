@@ -40,11 +40,15 @@ const ProductPageTemplate = props => {
 
             <meta name="description" content={description} />
             <link rel="canonical" href={canonical} />
+            <meta
+              name="viewport"
+              content="width=device-width, initial-scale=1, user-scalable=no"
+            />
 
             <meta property="og:url" content={`${siteUrl}/product/${handle}`} />
             <meta property="og:locale" content="en" />
             <meta property="og:title" content={title} />
-            <meta property="og:site_name" content="Gatsby Swag Store" />
+            <meta property="og:site_name" content="小贴画贴纸商店" />
             <meta property="og:description" content={description} />
 
             {/* TODO: add the image */}
@@ -53,8 +57,8 @@ const ProductPageTemplate = props => {
             <meta property="og:image:width" content="600" />
             <meta property="og:image:height" content="600" />
 
-            <meta name="twitter:card" content="summary" />
-            <meta name="twitter:site" content="@smallsticker" />
+            <meta name="weibo:card" content="summary" />
+            <meta name="weibo:site" content="@small-sticker" />
           </Helmet>
           <ProductPage
             product={product}

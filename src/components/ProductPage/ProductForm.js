@@ -139,14 +139,14 @@ class ProductForm extends Component {
     if (this.state.quantity < 1) {
       errors.push({
         field: 'quantity',
-        msg: 'Choose a <b>quantity</b> of 1 or more.'
+        msg: '请填写<b>数量</b>'
       });
     }
 
     if (this.state.variant === '' || this.state.variant === '.') {
       errors.push({
         field: 'variant',
-        msg: 'Please select a <b>size</b>.'
+        msg: '请选择一种 <b>规格</b>.'
       });
     }
 

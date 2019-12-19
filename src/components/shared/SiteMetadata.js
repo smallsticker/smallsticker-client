@@ -47,6 +47,10 @@ export default () => (
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#663399" />
         <meta name="msapplication-TileColor" content="#663399" />
         <meta name="theme-color" content="#663399" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no"
+        />
 
         <meta name="description" content={description} />
 
@@ -57,10 +61,7 @@ export default () => (
         <meta property="og:site_name" content={title} />
         <meta property="og:description" content={description} />
 
-        <meta
-          property="og:image"
-          content={`${siteUrl}/instagram-doraforscale.jpg`}
-        />
+        <meta property="og:image" content={`${siteUrl}/stickers.jpg`} />
         <meta
           property="og:image:alt"
           content="为了程序员方便买到喜欢的贴纸，我们建立这个贴纸商店"

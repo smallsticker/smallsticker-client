@@ -100,13 +100,15 @@ const Modal = styled(ReactModal)`
       width: 40%;
     }
   }
-  &.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.1);
+  &.search-overlay {
+    @media (min-width: ${breakpoints.desktop}px) {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.1);
+    }
   }
 `;
 
@@ -157,7 +159,7 @@ class Search extends React.Component {
             onRequestClose={this.handleCloseModal}
             contentLabel="搜索产品"
             className="content"
-            portalClassName="overlay"
+            portalClassName="search-overlay"
             // style={customStyles}
             contentRef={node => (this.contentRef = node)}
           >

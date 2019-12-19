@@ -88,7 +88,9 @@ class ShippingInfo extends Component {
           <ArrowIcon />
         </Intro>
         <Details>
-          国内快递一般3日内收到货，您可以登录查询快递实时状态跟踪，如果您认为快递有问题，可以发邮件到{' '}
+          国内快递一般3日内收到货，您可以登录查询快递实时状态跟踪，如果您认为快递有问题，可以在微博上{' '}
+          <a href="https://weibo.com/u/7356081466">@small-sticker</a>
+          ,也可以发邮件到{' '}
           <a href="mailto:team@smallsticker.com">team@smallsticker.com</a>
           跟我们取得联系。
         </Details>
