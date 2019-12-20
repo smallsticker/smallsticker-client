@@ -29,7 +29,7 @@ exports.createPages = async ({
   });
 
   createRedirect({
-    fromPath: '/贴纸/vue.html',
+    fromPath: '%2f%e8%b4%b4%e7%ba%b8%2findex.html',
     toPath: '/product/vue',
     isPermanent: true
   });
