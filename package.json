@@ -1,10 +1,10 @@
 {
-  "name": "gatsby-store",
-  "description": "Gatsby store for swag and other Gatsby goodies.",
+  "name": "smallsticker.com",
+  "description": "为了程序员方便买到喜欢的贴纸，我们建立这个贴纸商店！",
   "version": "1.0.0",
-  "author": "Jason Lengstorf <jason@gatsbyjs.com>",
+  "author": "rain wu <rain@smallsticker.com>",
   "keywords": [
-    "gatsby"
+    "小贴画 贴纸 程序员贴纸 sticker smallsticker gatsby"
   ],
   "license": "MIT",
   "scripts": {
@@ -22,7 +22,6 @@
     "@emotion/styled": "^10.0.17",
     "@smooth-ui/core-em": "^11.1.1",
     "algoliasearch": "^3.35.1",
-    "apollo-boost": "^0.3.1",
     "axios": "^0.18.0",
     "emotion-theming": "^10.0.19",
     "gatsby": "^2.5.0",
@@ -41,7 +40,6 @@
     "qrcode.react": "^0.9.3",
     "qs": "^6.9.0",
     "react": "^16.8.6",
-    "react-apollo": "^2.5.5",
     "react-distpicker": "^1.0.2",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
