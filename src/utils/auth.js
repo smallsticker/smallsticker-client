@@ -73,7 +73,6 @@ export const handleAuthentication = () => {
   strapi.setToken(params.jwt);
   localStorage.setItem('isLoggedIn', true);
   tokens.accessToken = params.jwt;
-  console.log(params);
   profile = params;
   navigate('/');
 };

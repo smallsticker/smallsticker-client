@@ -20,10 +20,6 @@ import SiteMetadata from '../shared/SiteMetadata';
 import { logout, getUserInfo } from '../../utils/auth';
 import { breakpoints, colors } from '../../utils/styles';
 
-// Import Futura PT typeface
-import '../../fonts/futura-pt/Webfonts/futurapt_demi_macroman/stylesheet.css';
-import _ from 'lodash/core';
-
 const globalStyles = css`
   html {
     box-sizing: border-box;
