@@ -29,7 +29,7 @@ exports.createPages = async ({
   });
   createRedirect({
     fromPath: '/贴纸/index.html',
-    toPath: '/product/vue',
+    toPath: '/product/vue/index.html',
     statusCode: 200
   });
 };
