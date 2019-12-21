@@ -28,6 +28,12 @@ exports.createPages = async ({
     });
   });
   createRedirect({
+    fromPath: 'https://frosty-bhaskara-cc64f4.netlify.com/*',
+    toPath: 'https://test.smallsticker.com/:splat',
+    isPermanent: true
+  });
+
+  createRedirect({
     fromPath: '/贴纸/index.html',
     toPath: '/product/vue/index.html',
     statusCode: 200
