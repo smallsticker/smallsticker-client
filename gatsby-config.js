@@ -45,7 +45,6 @@ module.exports = {
     description: '为了程序员方便买到喜欢的贴纸，我们建立这个贴纸商店！'
   },
   plugins: [
-    'gatsby-plugin-netlify',
     {
       resolve: `gatsby-plugin-layout`,
       options: {
