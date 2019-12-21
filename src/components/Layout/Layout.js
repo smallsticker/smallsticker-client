@@ -204,14 +204,15 @@ export default class Layout extends React.Component {
             });
           }
           if (result['isH5']) {
-            return (location.href =
+            return location.replace(
               result['url'] +
-              '&redirect_url=' +
-              encodeURIComponent(
-                `${process.env.HOST}/pay-return/?out_trade_no=${
-                  result['outTradeNo']
-                }`
-              ));
+                '&redirect_url=' +
+                encodeURIComponent(
+                  `${process.env.HOST}/pay-return/?out_trade_no=${
+                    result['outTradeNo']
+                  }`
+                )
+            );
           }
           location.href = result['url'];
         });
