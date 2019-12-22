@@ -27,10 +27,4 @@ exports.createPages = async ({
       }
     });
   });
-
-  createRedirect({
-    fromPath: '/贴纸/index.html',
-    toPath: '/product/vue',
-    statusCode: 200
-  });
 };
