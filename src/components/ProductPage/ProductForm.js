@@ -204,7 +204,7 @@ class ProductForm extends Component {
               <SizeFieldset>
                 <Label htmlFor="variant">
                   规格{' '}
-                  <Link to="/product-details">
+                  <Link to="/product-details?fromProduct#size-chart">
                     <MdInfoOutline />
                     <span>规格表</span>
                   </Link>
