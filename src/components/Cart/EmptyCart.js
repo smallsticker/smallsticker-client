@@ -100,7 +100,7 @@ const EmptyCart = () => (
     <SadCart />
     <SadCartCopy>
       <p>您的购物车很不开心 </p>
-      <p>快快选购塞满它吧！</p>
+      <p>赶快挑选填满它吧！</p>
     </SadCartCopy>
   </EmptyCartRoot>
 );
