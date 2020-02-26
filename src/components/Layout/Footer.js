@@ -61,9 +61,13 @@ const Footer = () => (
       <a href="mailto:team@smallsticker.com">team@smallsticker.com</a>
     </Row>
     <Spacer>•</Spacer>
-    <Row>© 2017-2020 北京小贴画科技有限公司</Row>
+    <Row>© 2020 北京小贴画科技有限公司</Row>
     <Spacer>•</Spacer>
-    <Row>京ICP备17007173号</Row>
+    <Row>
+      <a href="http://www.beian.miit.gov.cn/" target="_blank">
+        京ICP备17007173号
+      </a>
+    </Row>
     <Spacer>•</Spacer>
     <Row>
       <a
