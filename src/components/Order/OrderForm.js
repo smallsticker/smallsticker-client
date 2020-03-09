@@ -228,6 +228,7 @@ class OrderForm extends Component {
 
     callback(
       this.state.email,
+      this.state.consignee,
       this.state.phone,
       this.state.province +
         this.state.city +
