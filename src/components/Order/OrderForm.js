@@ -50,6 +50,7 @@ const ErrorMsgs = styled(`ul`)`
 class OrderForm extends Component {
   state = {
     email: '',
+    consignee: '',
     phone: '',
     payMethod: '',
     province: '',
@@ -162,6 +163,13 @@ class OrderForm extends Component {
       });
     }
 
+    if (this.state.consignee === '') {
+      errors.push({
+        field: '收货人',
+        msg: '必须填写'
+      });
+    }
+
     if (this.state.phone === '') {
       errors.push({
         field: '手机号码',
@@ -267,8 +275,20 @@ class OrderForm extends Component {
                 />
               </FormField>
               <FormField>
+                <FormFieldLabel name="consignee">收货人</FormFieldLabel>
+                <Input
+                  placeholder="请输入收货人姓名"
+                  id="consignee"
+                  name="consignee"
+                  type="consignee"
+                  value={this.state.consignee}
+                  onChange={this.handleChange}
+                />
+              </FormField>
+              <FormField>
                 <FormFieldLabel name="phone">手机号码</FormFieldLabel>
                 <Input
+                  placeholder="请输入收货人手机号"
                   id="phone"
                   name="phone"
                   type="tel"

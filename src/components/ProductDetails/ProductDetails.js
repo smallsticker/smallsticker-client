@@ -108,7 +108,7 @@ class ProductDetails extends React.Component {
           <SizeChartTable unit={units} />
           <p>
             <strong style={{ color: colors.brand }}>
-              没有看到您想要的大小？
+              没有看到您想要的规格？
             </strong>{' '}
             发邮件到
             <a href="mailto:team@smallsticker.com">team@smallsticker.com</a>

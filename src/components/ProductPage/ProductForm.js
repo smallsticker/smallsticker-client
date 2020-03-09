@@ -162,7 +162,7 @@ class ProductForm extends Component {
     const { variants } = this.props;
     const { errors } = this.state;
 
-    const hasVariants = variants.length > 1;
+    const hasVariants = variants.length > 0;
 
     /*
      * For products without variants, we disable the whole Add to Cart button
