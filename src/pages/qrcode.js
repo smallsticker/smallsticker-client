@@ -49,7 +49,7 @@ export default class QR extends React.Component {
           <TextContainer>
             <Tips>请使用微信扫码完成支付</Tips>
             <Text>
-              <QRCode value={this.props.location.state.qrcode} />
+              {/* <QRCode value={this.props.location.state.qrcode} /> */}
             </Text>
           </TextContainer>
         </Boxer>

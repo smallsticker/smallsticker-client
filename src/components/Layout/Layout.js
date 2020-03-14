@@ -199,6 +199,7 @@ export default class Layout extends React.Component {
           isDesktopViewport: this.state.interface.isDesktopViewport
         };
         return client.createEntry('orders', OrderToSubmit).then(result => {
+          console.log(result['isQrcode'], result['url']);
           if (result['isQrcode']) {
             navigate(`/qrcode?out_trade_no=${result['outTradeNo']}`, {
               state: { qrcode: result['url'], outTradeNo: result['outTradeNo'] }
