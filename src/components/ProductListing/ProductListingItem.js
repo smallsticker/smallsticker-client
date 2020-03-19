@@ -17,8 +17,7 @@ import {
   colors,
   fonts,
   radius,
-  spacing,
-  animations
+  spacing
 } from '../../utils/styles';
 
 const DESCRIPTION_LIMIT = 90;
@@ -77,42 +76,6 @@ const Preview = styled(`div`)`
         transform: scale(1.1);
       }
     }
-  }
-`;
-
-const CodeEligibility = styled(`div`)`
-  align-items: stretch;
-  animation: ${animations.simpleEntry};
-  border-radius: ${radius.default}px;
-  bottom: 0;
-  color: ${colors.lightest};
-  display: flex;
-  left: ${spacing.lg}px;
-  overflow: hidden;
-  position: absolute;
-  right: ${spacing.lg}px;
-
-  span {
-    align-items: center;
-    display: flex;
-    height: 30px;
-    justify-content: center;
-  }
-
-  span:first-of-type {
-    background: #999;
-    flex-basis: 35%;
-    font-size: 0.9rem;
-  }
-
-  span:last-child {
-    background: ${props =>
-      props.freeWith === 'HOLYBUCKETS' ? colors.lemon : colors.brand};
-    color: ${props =>
-      props.freeWith === 'HOLYBUCKETS' ? colors.brand : colors.lemon};
-    flex-basis: 65%;
-    font-family: ${fonts.heading};
-    font-size: 1rem;
   }
 `;
 
@@ -202,20 +165,6 @@ const CartIcon = styled(`span`)`
   }
 `;
 
-const checkEligibility = ({ contributor, freeWith }) => {
-  const { shopify } = contributor;
-
-  let eligibleCodes = [];
-
-  if (shopify && shopify.codes) {
-    eligibleCodes = shopify.codes.filter(
-      code => code.code === freeWith && code.used === false
-    );
-  }
-
-  return eligibleCodes.length ? true : false;
-};
-
 const ProductListingItem = props => {
   const {
     product: {
@@ -234,9 +183,6 @@ const ProductListingItem = props => {
     }
   } = firstImage;
 
-  const freeWith =
-    price >= 20 ? 'HOLYBUCKETS' : price >= 10 ? 'BUILDWITHGATSBY' : null;
-
   return (
     <UserContext.Consumer>
       {({ contributor }) => {
@@ -245,18 +191,6 @@ const ProductListingItem = props => {
             <Item>
               <Preview>
                 <Image fluid={fluid} />
-                {checkEligibility({
-                  freeWith,
-                  contributor
-                }) && (
-                  <CodeEligibility freeWith={freeWith}>
-                    <span>free with </span>
-                    <span>
-                      Code Swag Level
-                      {freeWith === 'HOLYBUCKETS' ? '2' : '1'}
-                    </span>
-                  </CodeEligibility>
-                )}
               </Preview>
               <Name>{title}</Name>
               <Description>
