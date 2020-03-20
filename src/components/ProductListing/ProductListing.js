@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { graphql, StaticQuery } from 'gatsby';
 import styled from '@emotion/styled';
 
@@ -19,6 +19,67 @@ const ProductListingContainer = styled(`div`)`
     padding: ${spacing['2xl']}px;
   }
 `;
+
+function Businesses(pageContext) {
+  console.log(pageContext);
+
+  const { businessList } = pageContext;
+  console.log(businessList);
+
+  const [hasMore, setMore] = useState(businessList.length > 12);
+  const [businesses, addBusinesses] = useState([...businessList.slice(0, 12)]);
+
+  const loadBusinesses = () => {
+    const currentLength = businesses.length;
+    const more = currentLength < businessList.length;
+    const nextBusinesses = more
+      ? businessList.slice(currentLength, currentLength + 12)
+      : [];
+    setMore(more);
+    addBusinesses([...businesses, ...nextBusinesses]);
+  };
+
+  const handleScroll = () => {
+    if (!hasMore) return;
+    if (
+      window &&
+      window.innerHeight + document.documentElement.scrollTop >=
+        document.documentElement.offsetHeight
+    ) {
+      loadBusinesses();
+    }
+  };
+
+  const handleTouchEnd = e => {
+    if (e.target.localName !== 'a') {
+      e.preventDefault();
+      handleScroll();
+    } else {
+      console.log('click');
+    }
+  };
+
+  useEffect(() => {
+    window && window.addEventListener('touchend', handleTouchEnd);
+    window && window.addEventListener('scroll', handleScroll);
+    window && window.addEventListener('resize', handleScroll);
+    return () => {
+      window && window.removeEventListener('touchend', handleTouchEnd);
+      window && window.removeEventListener('scroll', handleScroll);
+      window && window.removeEventListener('resize', handleScroll);
+    };
+  }, [businesses, hasMore]);
+
+  return (
+    <ProductListingContainer>
+      {businesses.map(({ node: product }) => (
+        <ProductListingItem key={product.id} product={product} />
+      ))}
+      {/* {!hasMore &&<div>All Businesses!</div>} */}
+      {hasMore && <div>Scroll Down to Load More...</div>}
+    </ProductListingContainer>
+  );
+}
 
 const ProductListing = () => (
   <StaticQuery
@@ -57,11 +118,7 @@ const ProductListing = () => (
     render={({ products }) => (
       <>
         <ProductListingHeader />
-        <ProductListingContainer>
-          {products.edges.map(({ node: product }) => (
-            <ProductListingItem key={product.id} product={product} />
-          ))}
-        </ProductListingContainer>
+        {Businesses({ businessList: products.edges })}
       </>
     )}
   />
