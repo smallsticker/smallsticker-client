@@ -40,7 +40,7 @@ const queries = [
 
 module.exports = {
   siteMetadata: {
-    siteUrl: 'https://test.smallsticker.com',
+    siteUrl: 'https://smallsticker.com',
     title: '程序员，在这儿找到您喜欢的贴纸',
     description: '为了程序员方便买到喜欢的贴纸，我们建立这个贴纸商店'
   },

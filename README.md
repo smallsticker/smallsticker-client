@@ -1,28 +1,27 @@
 <p align="center">
-  <a href="https://gatsbyjs.org">
+  <a href="https://smallsticker.com">
     <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
   </a>
 </p>
 <h1 align="center">
-  Gatsby <a href="https://store.gatsbyjs.org">Swag Store</a>
+  smallsticker <a href="https://smallsticker.com">sticker Store</a>
 </h1>
 
-This is the Gatsby store, where we make swag, stickers, and other Gatsby goodies available to contributors and Gatsby enthusiasts. 💪💜
+This is the smallsticker store, where we make swag, stickers, and other goodies available to programmer. 💪💜
 
 <p align="center">
   <img alt="Gatsby socks with Dora for scale." src="https://store.gatsbyjs.org/instagram-doraforscale.jpg" />
   Photo credit: <a href="https://instagram.com/doraforscale">doraforscale</a>
 </p>
 
-See it live: [store.gatsbyjs.org](https://store.gatsbyjs.org)
+See it live: [smallsticker.com](https://smallsticker.com)
 
 ## Technical Overview
 
 This store is built with data from:
 
-- [Shopify](https://shopify.com)
-- The [Shopify JavaScript Buy SDK](https://shopify.github.io/js-buy-sdk/)
-- [Auth0](https://auth0.com/)
+- [Strapi](https://strapi.io)
+- The [strapi-sdk-javascript](https://github.com/strapi/strapi-sdk-javascript)
 
 We’re using [Gatsby V2](https://github.com/gatsbyjs/gatsby) and [Emotion](https://emotion.sh/) to get the data on screen.
 
