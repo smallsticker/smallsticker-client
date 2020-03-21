@@ -46,21 +46,10 @@ function Businesses(pageContext) {
     }
   };
 
-  const handleTouchEnd = e => {
-    if (e.target.localName !== 'a') {
-      e.preventDefault();
-      handleScroll();
-    } else {
-      console.log('click');
-    }
-  };
-
   useEffect(() => {
-    window && window.addEventListener('touchend', handleTouchEnd);
     window && window.addEventListener('scroll', handleScroll);
     window && window.addEventListener('resize', handleScroll);
     return () => {
-      window && window.removeEventListener('touchend', handleTouchEnd);
       window && window.removeEventListener('scroll', handleScroll);
       window && window.removeEventListener('resize', handleScroll);
     };
