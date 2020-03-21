@@ -21,11 +21,7 @@ const ProductListingContainer = styled(`div`)`
 `;
 
 function Businesses(pageContext) {
-  console.log(pageContext);
-
   const { businessList } = pageContext;
-  console.log(businessList);
-
   const [hasMore, setMore] = useState(businessList.length > 12);
   const [businesses, addBusinesses] = useState([...businessList.slice(0, 12)]);
 
@@ -33,7 +29,7 @@ function Businesses(pageContext) {
     const currentLength = businesses.length;
     const more = currentLength < businessList.length;
     const nextBusinesses = more
-      ? businessList.slice(currentLength, currentLength + 12)
+      ? businessList.slice(currentLength, currentLength + 18)
       : [];
     setMore(more);
     addBusinesses([...businesses, ...nextBusinesses]);
@@ -75,8 +71,7 @@ function Businesses(pageContext) {
       {businesses.map(({ node: product }) => (
         <ProductListingItem key={product.id} product={product} />
       ))}
-      {/* {!hasMore &&<div>All Businesses!</div>} */}
-      {hasMore && <div>Scroll Down to Load More...</div>}
+      {hasMore && <div>向下滚动以加载更多内容...</div>}
     </ProductListingContainer>
   );
 }
