@@ -89,7 +89,7 @@ const ProductListing = () => (
                 image {
                   childImageSharp {
                     fluid(maxWidth: 910, maxHeight: 910) {
-                      ...GatsbyImageSharpFluid_withWebp
+                      ...GatsbyImageSharpFluid_withWebp_tracedSVG
                     }
                   }
                 }

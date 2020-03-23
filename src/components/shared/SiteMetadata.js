@@ -71,6 +71,7 @@ export default () => (
 
         <meta name="weibo:card" content="summary_large_image" />
         <meta name="weibo:site" content="@small-sticker" />
+        <script src={'meiqia.js'} />
       </Helmet>
     )}
   />
